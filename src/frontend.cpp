@@ -1,0 +1,151 @@
+#include"frontend.h"
+//"frame.h"
+//"map.h"
+//"camera.h"
+//"feature.h"
+//"common_include.h"
+//"opencv2/features2d.hpp"
+//"g2o_types.h"
+namespace myslam{
+    
+        Frontend::Frontend(){}
+
+        FrontendStatus Frontend::GetStatus() const {return status_;}
+        
+        void Frontend::SetCameras(Camera::Ptr left,Camera::Ptr right){
+                camera_left_ = left;
+                camera_right_= right;
+        }
+
+        bool Frontend::AddFrame(Frame::Ptr frame){
+                current_frame_ = frame;//将传入的帧设置为当前帧
+                switch(status_){//查询当前帧的状态
+                        case FrontendStatus::INITING://如果当前是初始化则调用双目初始化
+                                StereoInit();
+                                break;
+                        case FrontendStatus::TRACKING_GOOD://跟踪
+                                Track();
+                                break;
+                        case FrontendStatus::TRACKING_BAD:
+                                Track();
+                                break;
+                        case FrontendStatus::LOST://重启
+                                Reset();
+                                break;
+                }//switch
+                last_frame_=current_frame_;//当前帧变为上一帧数
+                return true;
+        }//bool AddFrame()
+
+        bool Frontend::Track(){
+                //如果有上一帧，则计算该帧的pose
+                if(last_frame_){
+                        current_frame_->SetPose(relative_motion_ * last_frame_->pose());
+                }
+                //判断跟踪状态
+                if(tracking_inliers_>num_features_tracking_){
+                        status_ = FrontendStatus::TRACKING_GOOD;
+                }else if(tracking_inliers_>num_features_tracking_bad_){
+                        status_ = FrontendStatus::TRACKING_BAD;
+                }else{
+                        status_ = FrontendStatus::LOST;
+                }
+                //插入关键帧，该函数内部会判断是否需要关键帧
+                InsertKeyframe();
+                //计算相对运动
+                relative_motion_ = current_frame_->pose() * last_frame_->pose().inverse();
+                return true;
+        }//bool Track() 
+
+        bool Frontend::InsertKeyframe(){
+                //判断是否需要关键帧
+                if(tracking_inliers_>=num_features_needed_for_keyframe_){
+                       return false;
+                }//if
+                //如果需要关键帧
+                current_frame_->SetKeyFrame();//将当前帧设置为关键帧
+                map_->Map::InsertKeyFrame(current_frame_);//在地图插入当前帧
+                SetObservationsForKeyFrame();
+                DetectFeatures();//对当前帧检测特征点
+                FindFeaturesInRight();//在右图寻找特征点
+                TriangulateNewPoints();//三角化特征点
+                //backend_->UpdateMap();//后端优化地图
+
+                return true;
+        }//bool InsertKeyframe()
+
+        void Frontend::SetObservationsForKeyFrame(){
+                //遍历当前帧所有左图特征点，Feature
+                for(const auto &feature : current_frame_->features_left){
+                        auto mp = feature->mappoint_.lock();
+                        if(mp) mp->AddObservation(feature);
+                }
+        }//void SetObservationsForKeyFrame()
+
+        int Frontend::TriangulateNewPoints(){
+                std::vector<SE3> poses{camera_left_->pose(),camera_right_->pose()};
+                SE3 current_pose_Twc = camera_left_->pose().inverse();
+                int cnt_triangulated_pts =0;
+                for(unsigned int i = 0;i<current_frame_->features_left.size();++i){
+                        if(current_frame_->features_left[i]->mappoint_.expired() &&
+                        current_frame_->features_right[i] != nullptr){
+                                std::vector<Vec3> points{
+                                        camera_left_->pixel2camera(
+                                                Vec2(current_frame_->features_left[i]->kp_.pt.x,
+                                                     current_frame_->features_left[i]->kp_.pt.y)),
+                                        camera_right_->pixel2camera(                               
+                                                Vec2(current_frame_->features_right[i]->kp_.pt.x,
+                                                     current_frame_->features_right[i]->kp_.pt.y))};
+                                Vec3 pworld = Vec3::Zero();
+
+                                if(triangulation(poses,points,pworld) && pworld[2]>0){
+                                        auto new_mappoint = MapPoint::CreateNewMappoint();
+                                        pworld = current_pose_Twc * pworld;
+                                        new_mappoint->SetPos(pworld);
+                                        new_mappoint->AddObservation(current_frame_->features_left[i]);
+                                        new_mappoint->AddObservation(current_frame_->features_right[i]);
+                                        current_frame_->features_left[i]->mappoint_ = new_mappoint;
+                                        current_frame_->features_right[i]->mappoint_ = new_mappoint;
+                                        map_->InsertMapPoint(new_mappoint);
+                                        cnt_triangulated_pts++;
+                                }//if
+                        }//if
+                }//for
+                return cnt_triangulated_pts;
+        }// int TriangulateNewPoints
+
+        inline bool Frontend::triangulation(const std::vector<SE3> &poses,
+                                const std::vector<Vec3> &points,
+                                Vec3 &pworld){
+                
+                MatXX A(2 * poses.size(), 4);
+                VecX b(2 * poses.size());
+                b.setZero();
+                for (size_t i = 0; i < poses.size(); ++i) {
+                        Mat34 m = poses[i].matrix3x4();
+                        A.block<1, 4>(2 * i, 0) = points[i][0] * m.row(2) - m.row(0);
+                        A.block<1, 4>(2 * i + 1, 0) = points[i][1] * m.row(2) - m.row(1);
+                }
+                auto svd = A.bdcSvd(Eigen::ComputeThinU | Eigen::ComputeThinV);
+                pworld = (svd.matrixV().col(3) / svd.matrixV()(3, 3)).head<3>();
+
+                if (svd.singularValues()[3] / svd.singularValues()[2] < 1e-2) {
+                        // 解质量不好，放弃
+                        return true;
+                }
+                return false;
+        }//triangulation
+
+        int Frontend::EstimateCurrentPose(){
+                //初始化g2o
+                typedef g2o::BlockSolver_6_3 BlockSolverType;
+                typedef g2o::LinearSolverDense<BlockSolverType::PoseMatrixType> LinearSloverType;
+                auto solver = new g2o::OptimizationAlgorithmLevenberg(
+                        g2o::make_unique<BlockSolverType>(g2o::make_unique<LinearSloverType>()));
+                g2o::SparseOptimizer optimizer;
+                optimizer.setAlgorithm(solver);
+                
+                //vertex
+                
+        }//Frontend::EstimateCurrentPose()
+}//namespace
