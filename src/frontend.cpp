@@ -146,6 +146,67 @@ namespace myslam{
                 optimizer.setAlgorithm(solver);
                 
                 //vertex
-                
+                VertexPose * vertexpose = new VertexPose();
+                vertexpose->setId(0);
+                vertexpose->setEstimate(current_frame_->pose());//设置估计量
+                optimizer.addVertex(vertexpose);
+
+                //K
+                Mat33 K = camera_left_->K();
+
+                //edges
+                int index = 1;
+                std::vector<EdgeProjectionPoseOnly *>edges;
+                std::vector<Feature::Ptr> features;
+                for(unsigned int i =0;i<current_frame_->features_left.size();++i){
+                        auto mp = current_frame_->features_left[i]->mappoint_.lock();
+                                if(mp){
+                                        features.push_back(current_frame_->features_left[i]);
+                                        EdgeProjectionPoseOnly *edge = new EdgeProjectionPoseOnly(mp->pos_,K);
+                                        edge->setId(index);
+                                        cv::Point2f &p = current_frame_->features_left[i]->kp_.pt;
+                                        edge->setMeasurement(Vec2(p.x,p.y));
+                                        edge->setInformation(Eigen::Matrix2d::Identity());
+                                        edge->setRobustKernel(new g2o::RobustKernelHuber);
+                                        edges.push_back(edge);
+                                        optimizer.addEdge(edge);
+                                        index++;
+                                }//if  
+                }//for
+                const double chi12_th = 5.991;
+                int cnt_outlier=0;
+                for(int iter = 0;iter<4;++iter){
+                        vertexpose->setEstimate(current_frame_->pose());
+                        optimizer.initializeOptimization();
+                        optimizer.optimize(10);
+                        cnt_outlier = 0;
+                        for(unsigned long i =0;i<edges.size();++i){
+                                auto e  = edges[i];
+                                if(features[i]->is_outlier){
+                                        e->computeError();
+                                }
+                                if(e->chi2()>chi12_th){
+                                        features[i]->is_outlier = true;
+                                        e->setLevel(1);
+                                        cnt_outlier ++;
+                                }else{
+                                        features[i]->is_outlier = false;
+                                        e->setLevel(0);
+                                }
+                                if(iter==2){
+                                        e->setRobustKernel(nullptr);
+                                }
+                                
+                        }//for
+                }//for
+                current_frame_->SetPose(vertexpose->estimate());
+                for(auto &feat:features){
+                        if(feat->is_outlier){
+                                feat->mappoint_.reset();
+                                feat->is_outlier = false;
+
+                        }
+                }//for
+                return features.size() - cnt_outlier;
         }//Frontend::EstimateCurrentPose()
 }//namespace

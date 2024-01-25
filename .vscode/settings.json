@@ -70,6 +70,8 @@
         "unordered_set": "cpp",
         "codecvt": "cpp",
         "*.ipp": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "core": "cpp",
+        "numericaldiff": "cpp"
     }
 }
