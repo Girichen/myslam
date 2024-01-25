@@ -73,6 +73,10 @@ map.h
 ../include/map.h
 g2o_types.h
 ../include/g2o_types.h
+viewer.h
+../include/viewer.h
+opencv2/opencv.hpp
+-
 
 ../include/g2o_types.h
 common_include.h

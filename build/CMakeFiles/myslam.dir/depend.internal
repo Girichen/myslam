@@ -1782,6 +1782,7 @@ CMakeFiles/myslam.dir/src/frontend.cpp.o
  ../include/g2o_types.h
  ../include/map.h
  ../include/mappoint.h
+ ../include/viewer.h
  ../thirdparty/g2o/g2o/core/base_binary_edge.h
  ../thirdparty/g2o/g2o/core/base_binary_edge.hpp
  ../thirdparty/g2o/g2o/core/base_edge.h
@@ -2416,6 +2417,78 @@ CMakeFiles/myslam.dir/src/frontend.cpp.o
  /usr/local/include/opencv2/viz/viz3d.hpp
  /usr/local/include/opencv2/viz/vizcore.hpp
  /usr/local/include/opencv2/viz/widgets.hpp
+ /usr/local/include/pangolin/compat/type_traits.h
+ /usr/local/include/pangolin/display/attach.h
+ /usr/local/include/pangolin/display/display.h
+ /usr/local/include/pangolin/display/display.hpp
+ /usr/local/include/pangolin/display/view.h
+ /usr/local/include/pangolin/display/widgets.h
+ /usr/local/include/pangolin/gl/colour.h
+ /usr/local/include/pangolin/gl/compat/gl2engine.h
+ /usr/local/include/pangolin/gl/compat/gl_es_compat.h
+ /usr/local/include/pangolin/gl/gl.h
+ /usr/local/include/pangolin/gl/gl.hpp
+ /usr/local/include/pangolin/gl/glchar.h
+ /usr/local/include/pangolin/gl/gldraw.h
+ /usr/local/include/pangolin/gl/glfont.h
+ /usr/local/include/pangolin/gl/glformattraits.h
+ /usr/local/include/pangolin/gl/glinclude.h
+ /usr/local/include/pangolin/gl/glpangoglu.h
+ /usr/local/include/pangolin/gl/glpixformat.h
+ /usr/local/include/pangolin/gl/glplatform.h
+ /usr/local/include/pangolin/gl/glsl.h
+ /usr/local/include/pangolin/gl/glsl.hpp
+ /usr/local/include/pangolin/gl/glstate.h
+ /usr/local/include/pangolin/gl/gltext.h
+ /usr/local/include/pangolin/gl/glvbo.h
+ /usr/local/include/pangolin/gl/opengl_render_state.h
+ /usr/local/include/pangolin/gl/viewport.h
+ /usr/local/include/pangolin/handler/handler.h
+ /usr/local/include/pangolin/image/copy.h
+ /usr/local/include/pangolin/image/image.h
+ /usr/local/include/pangolin/image/image_io.h
+ /usr/local/include/pangolin/image/managed_image.h
+ /usr/local/include/pangolin/image/memcpy.h
+ /usr/local/include/pangolin/image/pixel_format.h
+ /usr/local/include/pangolin/image/typed_image.h
+ /usr/local/include/pangolin/pangolin.h
+ /usr/local/include/pangolin/platform.h
+ /usr/local/include/pangolin/plot/datalog.h
+ /usr/local/include/pangolin/plot/plotter.h
+ /usr/local/include/pangolin/utils/assert.h
+ /usr/local/include/pangolin/utils/bitmask.h
+ /usr/local/include/pangolin/utils/file_extension.h
+ /usr/local/include/pangolin/utils/file_utils.h
+ /usr/local/include/pangolin/utils/format_string.h
+ /usr/local/include/pangolin/utils/is_streamable.h
+ /usr/local/include/pangolin/utils/log.h
+ /usr/local/include/pangolin/utils/params.h
+ /usr/local/include/pangolin/utils/picojson.h
+ /usr/local/include/pangolin/utils/range.h
+ /usr/local/include/pangolin/utils/signal_slot.h
+ /usr/local/include/pangolin/utils/simple_math.h
+ /usr/local/include/pangolin/utils/true_false_toggle.h
+ /usr/local/include/pangolin/utils/type_convert.h
+ /usr/local/include/pangolin/utils/uri.h
+ /usr/local/include/pangolin/var/var.h
+ /usr/local/include/pangolin/var/varextra.h
+ /usr/local/include/pangolin/var/varinit.h
+ /usr/local/include/pangolin/var/varstate.h
+ /usr/local/include/pangolin/var/varvalue.h
+ /usr/local/include/pangolin/var/varvaluegeneric.h
+ /usr/local/include/pangolin/var/varvaluet.h
+ /usr/local/include/pangolin/var/varwrapper.h
+ /usr/local/include/pangolin/video/stream_info.h
+ /usr/local/include/pangolin/video/video.h
+ /usr/local/include/pangolin/video/video_exception.h
+ /usr/local/include/pangolin/video/video_input.h
+ /usr/local/include/pangolin/video/video_interface.h
+ /usr/local/include/pangolin/video/video_output.h
+ /usr/local/include/pangolin/video/video_output_interface.h
+ /usr/local/include/pangolin/windowing/handler_bitsets.h
+ /usr/local/include/pangolin/windowing/handler_enums.h
+ /usr/local/include/pangolin/windowing/window.h
+ /usr/local/include/sigslot/signal.hpp
  /usr/local/include/sophus/common.hpp
  /usr/local/include/sophus/formatstring.hpp
  /usr/local/include/sophus/rotation_matrix.hpp

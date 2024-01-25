@@ -6,6 +6,8 @@
 #include"frame.h"
 #include"map.h"
 #include"g2o_types.h"
+#include"viewer.h"
+#include<opencv2/opencv.hpp>
 namespace myslam{
 class Backend;
 class Viewer;

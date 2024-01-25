@@ -6,6 +6,7 @@
 //"common_include.h"
 //"opencv2/features2d.hpp"
 //"g2o_types.h"
+//"viewer.h"
 namespace myslam{
     
         Frontend::Frontend(){}
@@ -209,4 +210,39 @@ namespace myslam{
                 }//for
                 return features.size() - cnt_outlier;
         }//Frontend::EstimateCurrentPose()
+
+        bool Frontend::StereoInit(){
+                //int num_features_left = DetectFeatures();
+                int num_features_right = FindFeaturesInRight();
+                if(num_features_right < num_features_init_){
+                        return false;
+                }
+                if(BuildInitMap()){
+                        status_ = FrontendStatus::TRACKING_GOOD;
+                        if(viewer_){
+                                viewer_->AddCurrentFrame(current_frame_);
+                                viewer_->UpdateMap();
+                        }
+                        return true;
+                }
+                return false;
+        }//bool StereoInit
+
+        int Frontend::DetectFeatures(){
+                cv::Mat mask(current_frame_->left_img.size(),CV_8UC1,255);
+                for(auto &feat : current_frame_->features_left){
+                cv::rectangle(mask,feat->kp_.pt - cv::Point2f(10,10),
+                                feat->kp_.pt +cv::Point2f(10,10),0,CV_FILLED);
+
+                }
+                std::vector<cv::KeyPoint> keypoints;
+                gftt_->detect(current_frame_->left_img,keypoints,mask);
+                int cnt_detected =0;
+                for(auto &kp:keypoints){
+                        current_frame_->features_left.push_back(Feature::Ptr(new Feature(current_frame_,kp)));
+                        cnt_detected++;
+                }
+                
+               return cnt_detected;
+        }
 }//namespace
