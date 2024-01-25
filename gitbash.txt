@@ -10,3 +10,5 @@ git pull origin main --allow
 git push origin main
 
 git merge develop main
+
+git branch -d master
