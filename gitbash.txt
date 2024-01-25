@@ -3,3 +3,10 @@ git add .
 git commit -m "first commit"
 git remote add origin ""
 git push origin master
+
+
+git checkout -b newbranch
+git pull origin main --allow
+git push origin main
+
+git merge develop main
