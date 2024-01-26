@@ -245,4 +245,39 @@ namespace myslam{
                 
                return cnt_detected;
         }
+
+        int Frontend::FindFeaturesInRight(){
+                std::vector<cv::Point2f>kps_left,kps_right;
+                for(auto &kp:current_frame_->features_right){
+                        kps_left.push_back(kp->kp_.pt);
+                        auto mp = kp->mappoint_.lock();//weak_ptr需要这样用
+                        if(mp){
+                                auto px = camera_right_->world2pixel(mp->pos_,current_frame_->pose());
+                                kps_right.push_back(cv::Point2f(px[0],px[1]));
+                        }else{
+                                kps_right.push_back(kp->kp_.pt);
+                        }
+
+                }
+                std::vector<uchar> status;
+                Mat error;
+                cv::calcOpticalFlowPyrLK(current_frame_->left_img,current_frame_->right_img,kps_left,kps_right,status,error,
+                                        cv::Size(11,11),3,
+                                        cv::TermCriteria(cv::TermCriteria::COUNT +cv::TermCriteria::EPS,30,0.01),
+                                        cv::OPTFLOW_USE_INITIAL_FLOW);
+                int num_good_pts=0;
+                for(unsigned long int i =0;i<status.size();++i){
+                        if(status[i]){
+                                cv::KeyPoint kp(kps_right[i],7);
+                                Feature::Ptr feat(new Feature(current_frame_,kp));
+                                feat->is_on_left_img = false;
+                                current_frame_->features_right.push_back(feat);
+                                ++num_good_pts;
+                        }else{
+                                current_frame_->features_right.push_back(nullptr);
+                        }
+                        
+                }
+                return num_good_pts;         
+        }//FindFeaturesInRight
 }//namespace
