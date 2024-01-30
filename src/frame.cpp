@@ -27,7 +27,7 @@ namespace myslam{
 
             Frame::Ptr Frame::CreateFrame(){
                 static unsigned long factory_id=0;
-                Frame::Ptr new_frame = std::make_shared<Frame>();//创建一个帧指针
+                Frame::Ptr new_frame(new Frame);//创建一个帧指针
                 new_frame->id = factory_id++;
                 return new_frame;//返回帧指针
             }

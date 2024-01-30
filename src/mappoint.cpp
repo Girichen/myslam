@@ -40,7 +40,7 @@ namespace myslam{
 
     MapPoint::Ptr MapPoint::CreateNewMappoint(){
         static unsigned long factory_id = 0;//static的话在该类公用
-        MapPoint::Ptr new_mappoint = std::make_shared<MapPoint>();
+        MapPoint::Ptr new_mappoint(new MapPoint);
         new_mappoint->id_ = factory_id;
         factory_id++;
         return new_mappoint;

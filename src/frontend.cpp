@@ -280,4 +280,42 @@ namespace myslam{
                 }
                 return num_good_pts;         
         }//FindFeaturesInRight
+
+        bool Frontend::BuildInitMap(){
+                std::vector<SE3> poses{camera_left_->pose(),camera_right_->pose()};
+                unsigned long cnt_init_landmarks = 0;
+                for(unsigned int i= 0;i<current_frame_->features_left.size();++i){
+                        if(current_frame_->features_left[i] = nullptr) continue;
+                        std::vector<Vec3> points{
+                                        camera_left_->pixel2camera(
+                                                Vec2(current_frame_->features_left[i]->kp_.pt.x,
+                                                     current_frame_->features_left[i]->kp_.pt.y)),
+                                        camera_right_->pixel2camera(                               
+                                                Vec2(current_frame_->features_right[i]->kp_.pt.x,
+                                                     current_frame_->features_right[i]->kp_.pt.y))};
+                        Vec3 pworld = Vec3::Zero();
+                        if(triangulation(poses,points,pworld) && pworld[2]>0){
+                                        auto new_mappoint = MapPoint::CreateNewMappoint();
+                                        new_mappoint->SetPos(pworld);
+                                        new_mappoint->AddObservation(current_frame_->features_left[i]);
+                                        new_mappoint->AddObservation(current_frame_->features_right[i]);
+                                        current_frame_->features_left[i]->mappoint_ = new_mappoint;
+                                        current_frame_->features_right[i]->mappoint_ = new_mappoint;
+                                        cnt_init_landmarks++;
+                                        map_->InsertMapPoint(new_mappoint);
+                                }//if         
+                }//for
+                current_frame_->SetKeyFrame();
+                map_->InsertKeyFrame(current_frame_);
+                //backend_->UpdateMap();
+                return true;
+        }//BuildInitMap
+
+        void Frontend::SetMap(Map::Ptr map){map_ = map;}
+
+        void Frontend::SetViewer(std::shared_ptr<Viewer> viewer){viewer_ = viewer;}
+
+        void Frontend::SetBackend(std::shared_ptr<Backend> backend){backend_ = backend;}
+
+        
 }//namespace
