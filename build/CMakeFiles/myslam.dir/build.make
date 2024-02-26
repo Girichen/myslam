@@ -57,9 +57,33 @@ include CMakeFiles/myslam.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/myslam.dir/flags.make
 
+CMakeFiles/myslam.dir/src/backend.cpp.o: CMakeFiles/myslam.dir/flags.make
+CMakeFiles/myslam.dir/src/backend.cpp.o: ../src/backend.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/myslam.dir/src/backend.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/backend.cpp.o -c /home/giri/myslam/src/backend.cpp
+
+CMakeFiles/myslam.dir/src/backend.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myslam.dir/src/backend.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giri/myslam/src/backend.cpp > CMakeFiles/myslam.dir/src/backend.cpp.i
+
+CMakeFiles/myslam.dir/src/backend.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myslam.dir/src/backend.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giri/myslam/src/backend.cpp -o CMakeFiles/myslam.dir/src/backend.cpp.s
+
+CMakeFiles/myslam.dir/src/backend.cpp.o.requires:
+
+.PHONY : CMakeFiles/myslam.dir/src/backend.cpp.o.requires
+
+CMakeFiles/myslam.dir/src/backend.cpp.o.provides: CMakeFiles/myslam.dir/src/backend.cpp.o.requires
+	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/backend.cpp.o.provides.build
+.PHONY : CMakeFiles/myslam.dir/src/backend.cpp.o.provides
+
+CMakeFiles/myslam.dir/src/backend.cpp.o.provides.build: CMakeFiles/myslam.dir/src/backend.cpp.o
+
+
 CMakeFiles/myslam.dir/src/camera.cpp.o: CMakeFiles/myslam.dir/flags.make
 CMakeFiles/myslam.dir/src/camera.cpp.o: ../src/camera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/myslam.dir/src/camera.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/myslam.dir/src/camera.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/camera.cpp.o -c /home/giri/myslam/src/camera.cpp
 
 CMakeFiles/myslam.dir/src/camera.cpp.i: cmake_force
@@ -79,30 +103,6 @@ CMakeFiles/myslam.dir/src/camera.cpp.o.provides: CMakeFiles/myslam.dir/src/camer
 .PHONY : CMakeFiles/myslam.dir/src/camera.cpp.o.provides
 
 CMakeFiles/myslam.dir/src/camera.cpp.o.provides.build: CMakeFiles/myslam.dir/src/camera.cpp.o
-
-
-CMakeFiles/myslam.dir/src/frame.cpp.o: CMakeFiles/myslam.dir/flags.make
-CMakeFiles/myslam.dir/src/frame.cpp.o: ../src/frame.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/myslam.dir/src/frame.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/frame.cpp.o -c /home/giri/myslam/src/frame.cpp
-
-CMakeFiles/myslam.dir/src/frame.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myslam.dir/src/frame.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giri/myslam/src/frame.cpp > CMakeFiles/myslam.dir/src/frame.cpp.i
-
-CMakeFiles/myslam.dir/src/frame.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myslam.dir/src/frame.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giri/myslam/src/frame.cpp -o CMakeFiles/myslam.dir/src/frame.cpp.s
-
-CMakeFiles/myslam.dir/src/frame.cpp.o.requires:
-
-.PHONY : CMakeFiles/myslam.dir/src/frame.cpp.o.requires
-
-CMakeFiles/myslam.dir/src/frame.cpp.o.provides: CMakeFiles/myslam.dir/src/frame.cpp.o.requires
-	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/frame.cpp.o.provides.build
-.PHONY : CMakeFiles/myslam.dir/src/frame.cpp.o.provides
-
-CMakeFiles/myslam.dir/src/frame.cpp.o.provides.build: CMakeFiles/myslam.dir/src/frame.cpp.o
 
 
 CMakeFiles/myslam.dir/src/feature.cpp.o: CMakeFiles/myslam.dir/flags.make
@@ -129,57 +129,33 @@ CMakeFiles/myslam.dir/src/feature.cpp.o.provides: CMakeFiles/myslam.dir/src/feat
 CMakeFiles/myslam.dir/src/feature.cpp.o.provides.build: CMakeFiles/myslam.dir/src/feature.cpp.o
 
 
-CMakeFiles/myslam.dir/src/mappoint.cpp.o: CMakeFiles/myslam.dir/flags.make
-CMakeFiles/myslam.dir/src/mappoint.cpp.o: ../src/mappoint.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/myslam.dir/src/mappoint.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/mappoint.cpp.o -c /home/giri/myslam/src/mappoint.cpp
+CMakeFiles/myslam.dir/src/frame.cpp.o: CMakeFiles/myslam.dir/flags.make
+CMakeFiles/myslam.dir/src/frame.cpp.o: ../src/frame.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/myslam.dir/src/frame.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/frame.cpp.o -c /home/giri/myslam/src/frame.cpp
 
-CMakeFiles/myslam.dir/src/mappoint.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myslam.dir/src/mappoint.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giri/myslam/src/mappoint.cpp > CMakeFiles/myslam.dir/src/mappoint.cpp.i
+CMakeFiles/myslam.dir/src/frame.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myslam.dir/src/frame.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giri/myslam/src/frame.cpp > CMakeFiles/myslam.dir/src/frame.cpp.i
 
-CMakeFiles/myslam.dir/src/mappoint.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myslam.dir/src/mappoint.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giri/myslam/src/mappoint.cpp -o CMakeFiles/myslam.dir/src/mappoint.cpp.s
+CMakeFiles/myslam.dir/src/frame.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myslam.dir/src/frame.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giri/myslam/src/frame.cpp -o CMakeFiles/myslam.dir/src/frame.cpp.s
 
-CMakeFiles/myslam.dir/src/mappoint.cpp.o.requires:
+CMakeFiles/myslam.dir/src/frame.cpp.o.requires:
 
-.PHONY : CMakeFiles/myslam.dir/src/mappoint.cpp.o.requires
+.PHONY : CMakeFiles/myslam.dir/src/frame.cpp.o.requires
 
-CMakeFiles/myslam.dir/src/mappoint.cpp.o.provides: CMakeFiles/myslam.dir/src/mappoint.cpp.o.requires
-	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/mappoint.cpp.o.provides.build
-.PHONY : CMakeFiles/myslam.dir/src/mappoint.cpp.o.provides
+CMakeFiles/myslam.dir/src/frame.cpp.o.provides: CMakeFiles/myslam.dir/src/frame.cpp.o.requires
+	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/frame.cpp.o.provides.build
+.PHONY : CMakeFiles/myslam.dir/src/frame.cpp.o.provides
 
-CMakeFiles/myslam.dir/src/mappoint.cpp.o.provides.build: CMakeFiles/myslam.dir/src/mappoint.cpp.o
-
-
-CMakeFiles/myslam.dir/src/map.cpp.o: CMakeFiles/myslam.dir/flags.make
-CMakeFiles/myslam.dir/src/map.cpp.o: ../src/map.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/myslam.dir/src/map.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/map.cpp.o -c /home/giri/myslam/src/map.cpp
-
-CMakeFiles/myslam.dir/src/map.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myslam.dir/src/map.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giri/myslam/src/map.cpp > CMakeFiles/myslam.dir/src/map.cpp.i
-
-CMakeFiles/myslam.dir/src/map.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myslam.dir/src/map.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giri/myslam/src/map.cpp -o CMakeFiles/myslam.dir/src/map.cpp.s
-
-CMakeFiles/myslam.dir/src/map.cpp.o.requires:
-
-.PHONY : CMakeFiles/myslam.dir/src/map.cpp.o.requires
-
-CMakeFiles/myslam.dir/src/map.cpp.o.provides: CMakeFiles/myslam.dir/src/map.cpp.o.requires
-	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/map.cpp.o.provides.build
-.PHONY : CMakeFiles/myslam.dir/src/map.cpp.o.provides
-
-CMakeFiles/myslam.dir/src/map.cpp.o.provides.build: CMakeFiles/myslam.dir/src/map.cpp.o
+CMakeFiles/myslam.dir/src/frame.cpp.o.provides.build: CMakeFiles/myslam.dir/src/frame.cpp.o
 
 
 CMakeFiles/myslam.dir/src/frontend.cpp.o: CMakeFiles/myslam.dir/flags.make
 CMakeFiles/myslam.dir/src/frontend.cpp.o: ../src/frontend.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/myslam.dir/src/frontend.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/myslam.dir/src/frontend.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/frontend.cpp.o -c /home/giri/myslam/src/frontend.cpp
 
 CMakeFiles/myslam.dir/src/frontend.cpp.i: cmake_force
@@ -201,9 +177,57 @@ CMakeFiles/myslam.dir/src/frontend.cpp.o.provides: CMakeFiles/myslam.dir/src/fro
 CMakeFiles/myslam.dir/src/frontend.cpp.o.provides.build: CMakeFiles/myslam.dir/src/frontend.cpp.o
 
 
+CMakeFiles/myslam.dir/src/map.cpp.o: CMakeFiles/myslam.dir/flags.make
+CMakeFiles/myslam.dir/src/map.cpp.o: ../src/map.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/myslam.dir/src/map.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/map.cpp.o -c /home/giri/myslam/src/map.cpp
+
+CMakeFiles/myslam.dir/src/map.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myslam.dir/src/map.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giri/myslam/src/map.cpp > CMakeFiles/myslam.dir/src/map.cpp.i
+
+CMakeFiles/myslam.dir/src/map.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myslam.dir/src/map.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giri/myslam/src/map.cpp -o CMakeFiles/myslam.dir/src/map.cpp.s
+
+CMakeFiles/myslam.dir/src/map.cpp.o.requires:
+
+.PHONY : CMakeFiles/myslam.dir/src/map.cpp.o.requires
+
+CMakeFiles/myslam.dir/src/map.cpp.o.provides: CMakeFiles/myslam.dir/src/map.cpp.o.requires
+	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/map.cpp.o.provides.build
+.PHONY : CMakeFiles/myslam.dir/src/map.cpp.o.provides
+
+CMakeFiles/myslam.dir/src/map.cpp.o.provides.build: CMakeFiles/myslam.dir/src/map.cpp.o
+
+
+CMakeFiles/myslam.dir/src/mappoint.cpp.o: CMakeFiles/myslam.dir/flags.make
+CMakeFiles/myslam.dir/src/mappoint.cpp.o: ../src/mappoint.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/myslam.dir/src/mappoint.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/mappoint.cpp.o -c /home/giri/myslam/src/mappoint.cpp
+
+CMakeFiles/myslam.dir/src/mappoint.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myslam.dir/src/mappoint.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giri/myslam/src/mappoint.cpp > CMakeFiles/myslam.dir/src/mappoint.cpp.i
+
+CMakeFiles/myslam.dir/src/mappoint.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myslam.dir/src/mappoint.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giri/myslam/src/mappoint.cpp -o CMakeFiles/myslam.dir/src/mappoint.cpp.s
+
+CMakeFiles/myslam.dir/src/mappoint.cpp.o.requires:
+
+.PHONY : CMakeFiles/myslam.dir/src/mappoint.cpp.o.requires
+
+CMakeFiles/myslam.dir/src/mappoint.cpp.o.provides: CMakeFiles/myslam.dir/src/mappoint.cpp.o.requires
+	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/mappoint.cpp.o.provides.build
+.PHONY : CMakeFiles/myslam.dir/src/mappoint.cpp.o.provides
+
+CMakeFiles/myslam.dir/src/mappoint.cpp.o.provides.build: CMakeFiles/myslam.dir/src/mappoint.cpp.o
+
+
 CMakeFiles/myslam.dir/src/viewer.cpp.o: CMakeFiles/myslam.dir/flags.make
 CMakeFiles/myslam.dir/src/viewer.cpp.o: ../src/viewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/myslam.dir/src/viewer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/myslam.dir/src/viewer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/viewer.cpp.o -c /home/giri/myslam/src/viewer.cpp
 
 CMakeFiles/myslam.dir/src/viewer.cpp.i: cmake_force
@@ -227,23 +251,25 @@ CMakeFiles/myslam.dir/src/viewer.cpp.o.provides.build: CMakeFiles/myslam.dir/src
 
 # Object files for target myslam
 myslam_OBJECTS = \
+"CMakeFiles/myslam.dir/src/backend.cpp.o" \
 "CMakeFiles/myslam.dir/src/camera.cpp.o" \
-"CMakeFiles/myslam.dir/src/frame.cpp.o" \
 "CMakeFiles/myslam.dir/src/feature.cpp.o" \
-"CMakeFiles/myslam.dir/src/mappoint.cpp.o" \
-"CMakeFiles/myslam.dir/src/map.cpp.o" \
+"CMakeFiles/myslam.dir/src/frame.cpp.o" \
 "CMakeFiles/myslam.dir/src/frontend.cpp.o" \
+"CMakeFiles/myslam.dir/src/map.cpp.o" \
+"CMakeFiles/myslam.dir/src/mappoint.cpp.o" \
 "CMakeFiles/myslam.dir/src/viewer.cpp.o"
 
 # External object files for target myslam
 myslam_EXTERNAL_OBJECTS =
 
+../lib/libmyslam.so: CMakeFiles/myslam.dir/src/backend.cpp.o
 ../lib/libmyslam.so: CMakeFiles/myslam.dir/src/camera.cpp.o
-../lib/libmyslam.so: CMakeFiles/myslam.dir/src/frame.cpp.o
 ../lib/libmyslam.so: CMakeFiles/myslam.dir/src/feature.cpp.o
-../lib/libmyslam.so: CMakeFiles/myslam.dir/src/mappoint.cpp.o
-../lib/libmyslam.so: CMakeFiles/myslam.dir/src/map.cpp.o
+../lib/libmyslam.so: CMakeFiles/myslam.dir/src/frame.cpp.o
 ../lib/libmyslam.so: CMakeFiles/myslam.dir/src/frontend.cpp.o
+../lib/libmyslam.so: CMakeFiles/myslam.dir/src/map.cpp.o
+../lib/libmyslam.so: CMakeFiles/myslam.dir/src/mappoint.cpp.o
 ../lib/libmyslam.so: CMakeFiles/myslam.dir/src/viewer.cpp.o
 ../lib/libmyslam.so: CMakeFiles/myslam.dir/build.make
 ../lib/libmyslam.so: /usr/local/lib/libopencv_dnn.so.3.4.3
@@ -284,7 +310,7 @@ myslam_EXTERNAL_OBJECTS =
 ../lib/libmyslam.so: /usr/local/lib/libpango_packetstream.so
 ../lib/libmyslam.so: /usr/local/lib/libpango_core.so
 ../lib/libmyslam.so: CMakeFiles/myslam.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX shared library ../lib/libmyslam.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX shared library ../lib/libmyslam.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/myslam.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -292,12 +318,13 @@ CMakeFiles/myslam.dir/build: ../lib/libmyslam.so
 
 .PHONY : CMakeFiles/myslam.dir/build
 
+CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/backend.cpp.o.requires
 CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/camera.cpp.o.requires
-CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/frame.cpp.o.requires
 CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/feature.cpp.o.requires
-CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/mappoint.cpp.o.requires
-CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/map.cpp.o.requires
+CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/frame.cpp.o.requires
 CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/frontend.cpp.o.requires
+CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/map.cpp.o.requires
+CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/mappoint.cpp.o.requires
 CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/viewer.cpp.o.requires
 
 .PHONY : CMakeFiles/myslam.dir/requires

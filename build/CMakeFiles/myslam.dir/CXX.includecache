@@ -610,6 +610,8 @@ g2o_stuff_api.h
 g2o/stuff/misc.h
 ../thirdparty/g2o/g2o/stuff/g2o/stuff/misc.h
 
+/home/giri/myslam/src/backend.cpp
+
 /home/giri/myslam/src/camera.cpp
 camera.h
 /home/giri/myslam/src/camera.h

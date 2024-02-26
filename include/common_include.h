@@ -16,7 +16,7 @@
 #include <typeinfo>
 #include <unordered_map>
 #include <vector>
-#include<unistd.h>
+#include <unistd.h>
 using namespace std;
 // define the commonly included file to avoid a long include list
 #include <Eigen/Core>

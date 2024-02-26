@@ -1,4 +1,3 @@
 /home/giri/myslam/build/CMakeFiles/rebuild_cache.dir
 /home/giri/myslam/build/CMakeFiles/myslam.dir
 /home/giri/myslam/build/CMakeFiles/edit_cache.dir
-/home/giri/myslam/build/CMakeFiles/main.dir

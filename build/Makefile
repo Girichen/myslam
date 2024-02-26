@@ -123,18 +123,32 @@ myslam/fast:
 	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/build
 .PHONY : myslam/fast
 
-#=============================================================================
-# Target rules for targets named main
+src/backend.o: src/backend.cpp.o
 
-# Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 main
-.PHONY : main
+.PHONY : src/backend.o
 
-# fast build rule for target.
-main/fast:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
+# target to build an object file
+src/backend.cpp.o:
+	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/backend.cpp.o
+.PHONY : src/backend.cpp.o
+
+src/backend.i: src/backend.cpp.i
+
+.PHONY : src/backend.i
+
+# target to preprocess a source file
+src/backend.cpp.i:
+	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/backend.cpp.i
+.PHONY : src/backend.cpp.i
+
+src/backend.s: src/backend.cpp.s
+
+.PHONY : src/backend.s
+
+# target to generate assembly for a file
+src/backend.cpp.s:
+	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/backend.cpp.s
+.PHONY : src/backend.cpp.s
 
 src/camera.o: src/camera.cpp.o
 
@@ -244,33 +258,6 @@ src/frontend.cpp.s:
 	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/frontend.cpp.s
 .PHONY : src/frontend.cpp.s
 
-src/main.o: src/main.cpp.o
-
-.PHONY : src/main.o
-
-# target to build an object file
-src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
-
-src/main.i: src/main.cpp.i
-
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
-
-src/main.s: src/main.cpp.s
-
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
-
 src/map.o: src/map.cpp.o
 
 .PHONY : src/map.o
@@ -361,7 +348,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... myslam"
 	@echo "... edit_cache"
-	@echo "... main"
+	@echo "... src/backend.o"
+	@echo "... src/backend.i"
+	@echo "... src/backend.s"
 	@echo "... src/camera.o"
 	@echo "... src/camera.i"
 	@echo "... src/camera.s"
@@ -374,9 +363,6 @@ help:
 	@echo "... src/frontend.o"
 	@echo "... src/frontend.i"
 	@echo "... src/frontend.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
 	@echo "... src/map.o"
 	@echo "... src/map.i"
 	@echo "... src/map.s"
