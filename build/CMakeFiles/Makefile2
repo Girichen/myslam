@@ -97,6 +97,24 @@ clean: CMakeFiles/myslam.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Directory level rules for directory app
+
+# Convenience name for "all" pass in the directory.
+app/all:
+
+.PHONY : app/all
+
+# Convenience name for "clean" pass in the directory.
+app/clean:
+
+.PHONY : app/clean
+
+# Convenience name for "preinstall" pass in the directory.
+app/preinstall:
+
+.PHONY : app/preinstall
+
+#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.

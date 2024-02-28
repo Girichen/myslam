@@ -43,6 +43,8 @@ Eigen/Core
 -
 Eigen/Geometry
 -
+Eigen/Dense
+-
 sophus/se3.hpp
 -
 sophus/so3.hpp

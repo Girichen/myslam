@@ -196,6 +196,9 @@ G2O_CORE_LIBRARY:FILEPATH=/usr/local/lib/libg2o_core.so
 //Path to a library.
 G2O_CORE_LIBRARY_DEBUG:FILEPATH=G2O_CORE_LIBRARY_DEBUG-NOTFOUND
 
+//The directory containing a CMake configuration file for G2O.
+G2O_DIR:PATH=G2O_DIR-NOTFOUND
+
 //Path to a file.
 G2O_INCLUDE_DIR:PATH=/usr/local/include
 
@@ -313,6 +316,12 @@ myslam_LIB_DEPENDS:STATIC=general;opencv_calib3d;general;opencv_core;general;ope
 //Value Computed by CMake
 myslam_SOURCE_DIR:STATIC=/home/giri/myslam
 
+//Value Computed by CMake
+run_kitti_stereo_BINARY_DIR:STATIC=/home/giri/myslam/build/app
+
+//Value Computed by CMake
+run_kitti_stereo_SOURCE_DIR:STATIC=/home/giri/myslam/app
+
 
 ########################
 # INTERNAL cache entries
@@ -420,7 +429,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

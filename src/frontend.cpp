@@ -13,6 +13,12 @@ namespace myslam{
 
         FrontendStatus Frontend::GetStatus() const {return status_;}
         
+        void Frontend::SetMap(Map::Ptr map){map_ = map;}
+
+        void Frontend::SetViewer(std::shared_ptr<Viewer> viewer){viewer_ = viewer;}
+
+        void Frontend::SetBackend(std::shared_ptr<Backend> backend){backend_ = backend;}
+        
         void Frontend::SetCameras(Camera::Ptr left,Camera::Ptr right){
                 camera_left_ = left;
                 camera_right_= right;
@@ -311,11 +317,7 @@ namespace myslam{
                 return true;
         }//BuildInitMap
 
-        void Frontend::SetMap(Map::Ptr map){map_ = map;}
 
-        void Frontend::SetViewer(std::shared_ptr<Viewer> viewer){viewer_ = viewer;}
-
-        void Frontend::SetBackend(std::shared_ptr<Backend> backend){backend_ = backend;}
 
         
 }//namespace

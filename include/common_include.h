@@ -21,7 +21,7 @@ using namespace std;
 // define the commonly included file to avoid a long include list
 #include <Eigen/Core>
 #include <Eigen/Geometry>
-
+#include <Eigen/Dense>
 // typedefs for eigen
 // double matricies
 typedef Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> MatXX;
