@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+../include/backend.h
+common_include.h
+../include/common_include.h
+frame.h
+../include/frame.h
+map.h
+../include/map.h
+
 ../include/camera.h
 common_include.h
 ../include/common_include.h
@@ -613,6 +621,8 @@ g2o/stuff/misc.h
 ../thirdparty/g2o/g2o/stuff/g2o/stuff/misc.h
 
 /home/giri/myslam/src/backend.cpp
+backend.h
+/home/giri/myslam/src/backend.h
 
 /home/giri/myslam/src/camera.cpp
 camera.h
