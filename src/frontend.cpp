@@ -18,7 +18,7 @@ namespace myslam{
         void Frontend::SetViewer(std::shared_ptr<Viewer> viewer){viewer_ = viewer;}
 
         void Frontend::SetBackend(std::shared_ptr<Backend> backend){backend_ = backend;}
-        
+
         void Frontend::SetCameras(Camera::Ptr left,Camera::Ptr right){
                 camera_left_ = left;
                 camera_right_= right;
@@ -317,7 +317,45 @@ namespace myslam{
                 return true;
         }//BuildInitMap
 
+        bool Frontend::Reset(){
+                
+                return 0;
+        }//Reset()
 
+        int Frontend::TrackLastFrame(){
+                //创建上一关键点、当前关键点
+                std::vector<cv::Point2f> kps_last,kps_current;
+                //遍历上一关键点，如果地图点存在就
+                for(auto &kp : last_frame_->features_left){
+                       if(auto mp = kp->mappoint_.lock()){
+                                auto px = camera_left_->world2pixel(mp->pos_,current_frame_->pose());
+                                kps_last.push_back(kp->kp_.pt);
+                                kps_current.push_back(cv::Point2f(px[0],px[1]));
+                        }else{
+                                kps_last.push_back(kp->kp_.pt);
+                                kps_current.push_back(kp->kp_.pt);
+                        }//else
+             }//for
 
-        
+             std::vector<uchar> status;
+             cv::Mat error;
+             cv::calcOpticalFlowPyrLK(
+                        last_frame_->left_img,current_frame_->left_img,kps_last,
+                        kps_current,status,error,cv::Size(11,11),3,
+                        cv::TermCriteria(cv::TermCriteria::COUNT + cv::TermCriteria::EPS,30,0.01),
+                        cv::OPTFLOW_USE_INITIAL_FLOW
+             );
+             int num_good_pts = 0;
+
+             for(size_t i = 0;i<status.size();++i){
+                if(status[i]){
+                        cv::KeyPoint kp(kps_current[i],7);
+                        Feature::Ptr feature(new Feature(current_frame_,kp));
+                        feature->mappoint_ = last_frame_->features_left[i]->mappoint_;
+                        current_frame_->features_left.push_back(feature);
+                        num_good_pts++;
+                }//if
+             }//for
+             return num_good_pts;
+        }//TrackLastFrame
 }//namespace
