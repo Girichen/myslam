@@ -218,7 +218,7 @@ namespace myslam{
         }//Frontend::EstimateCurrentPose()
 
         bool Frontend::StereoInit(){
-                //int num_features_left = DetectFeatures();
+                
                 int num_features_right = FindFeaturesInRight();
                 if(num_features_right < num_features_init_){
                         return false;
