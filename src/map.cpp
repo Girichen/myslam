@@ -83,7 +83,7 @@ namespace myslam{
         }//void Map::InesertMapPoint
 
         std::unordered_map<unsigned long,MapPoint::Ptr> Map::GetActiveMapPoints(){
-            std::unique_lock<std::mutex> lck(data_mutex);
+            std::unique_lock<std::mutex> lock(data_mutex);
             return active_landmarks_;
         }// Map::GetActiveMapPoints()
 
