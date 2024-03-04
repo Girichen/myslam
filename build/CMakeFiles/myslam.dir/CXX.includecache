@@ -13,6 +13,8 @@ frame.h
 ../include/frame.h
 map.h
 ../include/map.h
+g2o_types.h
+../include/g2o_types.h
 
 ../include/camera.h
 common_include.h

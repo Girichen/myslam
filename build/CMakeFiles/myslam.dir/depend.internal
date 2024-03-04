@@ -7,9 +7,60 @@ CMakeFiles/myslam.dir/src/backend.cpp.o
  ../include/common_include.h
  ../include/feature.h
  ../include/frame.h
+ ../include/g2o_types.h
  ../include/map.h
  ../include/mappoint.h
+ ../thirdparty/g2o/g2o/core/base_binary_edge.h
+ ../thirdparty/g2o/g2o/core/base_binary_edge.hpp
+ ../thirdparty/g2o/g2o/core/base_edge.h
+ ../thirdparty/g2o/g2o/core/base_unary_edge.h
+ ../thirdparty/g2o/g2o/core/base_unary_edge.hpp
+ ../thirdparty/g2o/g2o/core/base_vertex.h
+ ../thirdparty/g2o/g2o/core/base_vertex.hpp
+ ../thirdparty/g2o/g2o/core/batch_stats.h
+ ../thirdparty/g2o/g2o/core/block_solver.h
+ ../thirdparty/g2o/g2o/core/block_solver.hpp
+ ../thirdparty/g2o/g2o/core/creators.h
+ ../thirdparty/g2o/g2o/core/dynamic_aligned_buffer.hpp
+ ../thirdparty/g2o/g2o/core/eigen_types.h
+ ../thirdparty/g2o/g2o/core/g2o_core_api.h
+ ../thirdparty/g2o/g2o/core/hyper_graph.h
+ ../thirdparty/g2o/g2o/core/jacobian_workspace.h
+ ../thirdparty/g2o/g2o/core/linear_solver.h
+ ../thirdparty/g2o/g2o/core/marginal_covariance_cholesky.h
+ ../thirdparty/g2o/g2o/core/matrix_operations.h
+ ../thirdparty/g2o/g2o/core/matrix_structure.h
+ ../thirdparty/g2o/g2o/core/openmp_mutex.h
+ ../thirdparty/g2o/g2o/core/optimizable_graph.h
+ ../thirdparty/g2o/g2o/core/optimization_algorithm.h
+ ../thirdparty/g2o/g2o/core/optimization_algorithm_gauss_newton.h
+ ../thirdparty/g2o/g2o/core/optimization_algorithm_levenberg.h
+ ../thirdparty/g2o/g2o/core/optimization_algorithm_with_hessian.h
+ ../thirdparty/g2o/g2o/core/parameter.h
+ ../thirdparty/g2o/g2o/core/parameter_container.h
+ ../thirdparty/g2o/g2o/core/robust_kernel.h
+ ../thirdparty/g2o/g2o/core/robust_kernel_impl.h
+ ../thirdparty/g2o/g2o/core/solver.h
+ ../thirdparty/g2o/g2o/core/sparse_block_matrix.h
+ ../thirdparty/g2o/g2o/core/sparse_block_matrix.hpp
+ ../thirdparty/g2o/g2o/core/sparse_block_matrix_ccs.h
+ ../thirdparty/g2o/g2o/core/sparse_block_matrix_diagonal.h
+ ../thirdparty/g2o/g2o/core/sparse_optimizer.h
+ ../thirdparty/g2o/g2o/solvers/csparse/csparse_extension.h
+ ../thirdparty/g2o/g2o/solvers/csparse/csparse_helper.h
+ ../thirdparty/g2o/g2o/solvers/csparse/g2o_csparse_api.h
+ ../thirdparty/g2o/g2o/solvers/csparse/g2o_csparse_extension_api.h
+ ../thirdparty/g2o/g2o/solvers/csparse/linear_solver_csparse.h
+ ../thirdparty/g2o/g2o/solvers/dense/linear_solver_dense.h
+ ../thirdparty/g2o/g2o/stuff/g2o_stuff_api.h
+ ../thirdparty/g2o/g2o/stuff/macros.h
+ ../thirdparty/g2o/g2o/stuff/misc.h
+ ../thirdparty/g2o/g2o/stuff/property.h
+ ../thirdparty/g2o/g2o/stuff/string_tools.h
+ ../thirdparty/g2o/g2o/stuff/timeutil.h
  /home/giri/myslam/src/backend.cpp
+ /usr/include/suitesparse/SuiteSparse_config.h
+ /usr/include/suitesparse/cs.h
  /usr/local/include/boost/assert.hpp
  /usr/local/include/boost/assert/source_location.hpp
  /usr/local/include/boost/config.hpp
@@ -226,6 +277,7 @@ CMakeFiles/myslam.dir/src/backend.cpp.o
  /usr/local/include/eigen3/Eigen/LU
  /usr/local/include/eigen3/Eigen/QR
  /usr/local/include/eigen3/Eigen/SVD
+ /usr/local/include/eigen3/Eigen/StdVector
  /usr/local/include/eigen3/Eigen/src/Cholesky/LDLT.h
  /usr/local/include/eigen3/Eigen/src/Cholesky/LLT.h
  /usr/local/include/eigen3/Eigen/src/Cholesky/LLT_LAPACKE.h
@@ -439,6 +491,8 @@ CMakeFiles/myslam.dir/src/backend.cpp.o
  /usr/local/include/eigen3/Eigen/src/SVD/JacobiSVD_LAPACKE.h
  /usr/local/include/eigen3/Eigen/src/SVD/SVDBase.h
  /usr/local/include/eigen3/Eigen/src/SVD/UpperBidiagonalization.h
+ /usr/local/include/eigen3/Eigen/src/StlSupport/StdVector.h
+ /usr/local/include/eigen3/Eigen/src/StlSupport/details.h
  /usr/local/include/eigen3/Eigen/src/misc/Image.h
  /usr/local/include/eigen3/Eigen/src/misc/Kernel.h
  /usr/local/include/eigen3/Eigen/src/misc/RealSvd2x2.h
@@ -454,6 +508,7 @@ CMakeFiles/myslam.dir/src/backend.cpp.o
  /usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
  /usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
  /usr/local/include/eigen3/Eigen/src/plugins/ReshapedMethods.h
+ /usr/local/include/g2o/config.h
  /usr/local/include/opencv/cxcore.h
  /usr/local/include/opencv2/calib3d.hpp
  /usr/local/include/opencv2/calib3d/calib3d_c.h

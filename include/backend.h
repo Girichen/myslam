@@ -6,6 +6,7 @@
 #include"common_include.h"
 #include"frame.h"
 #include"map.h"
+#include"g2o_types.h"
 namespace myslam{
 class Camera;
 class Map;
