@@ -12,7 +12,7 @@ bool VisualOdometry::Init() {
     if (Config::SetParameterFile(config_file_path_) == false) {
         return false;
     }
-
+    
     dataset_ =
         Dataset::Ptr(new Dataset(Config::Get<std::string>("dataset_dir")));
     
@@ -32,7 +32,7 @@ bool VisualOdometry::Init() {
     backend_->SetCameras(dataset_->GetCamera(0), dataset_->GetCamera(1));
 
     viewer_->SetMap(map_);
-
+    
     return true;
 }
 void VisualOdometry::Run() {

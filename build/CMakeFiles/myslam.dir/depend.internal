@@ -1241,10 +1241,10 @@ CMakeFiles/myslam.dir/src/camera.cpp.o
  /usr/local/include/sophus/so2.hpp
  /usr/local/include/sophus/so3.hpp
  /usr/local/include/sophus/types.hpp
-CMakeFiles/myslam.dir/src/confing.cc.o
+CMakeFiles/myslam.dir/src/config.cpp.o
  ../include/common_include.h
  ../include/config.h
- /home/giri/myslam/src/confing.cc
+ /home/giri/myslam/src/config.cpp
  /usr/local/include/boost/assert.hpp
  /usr/local/include/boost/assert/source_location.hpp
  /usr/local/include/boost/config.hpp
@@ -6442,7 +6442,7 @@ CMakeFiles/myslam.dir/src/viewer.cpp.o
  /usr/local/include/sophus/so2.hpp
  /usr/local/include/sophus/so3.hpp
  /usr/local/include/sophus/types.hpp
-CMakeFiles/myslam.dir/src/visual_odometry.cc.o
+CMakeFiles/myslam.dir/src/visual_odometry.cpp.o
  ../include/backend.h
  ../include/camera.h
  ../include/common_include.h
@@ -6504,7 +6504,7 @@ CMakeFiles/myslam.dir/src/visual_odometry.cc.o
  ../thirdparty/g2o/g2o/stuff/property.h
  ../thirdparty/g2o/g2o/stuff/string_tools.h
  ../thirdparty/g2o/g2o/stuff/timeutil.h
- /home/giri/myslam/src/visual_odometry.cc
+ /home/giri/myslam/src/visual_odometry.cpp
  /usr/include/suitesparse/SuiteSparse_config.h
  /usr/include/suitesparse/cs.h
  /usr/local/include/boost/assert.hpp

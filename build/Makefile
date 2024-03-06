@@ -190,32 +190,32 @@ src/camera.cpp.s:
 	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/camera.cpp.s
 .PHONY : src/camera.cpp.s
 
-src/confing.o: src/confing.cc.o
+src/config.o: src/config.cpp.o
 
-.PHONY : src/confing.o
+.PHONY : src/config.o
 
 # target to build an object file
-src/confing.cc.o:
-	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/confing.cc.o
-.PHONY : src/confing.cc.o
+src/config.cpp.o:
+	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/config.cpp.o
+.PHONY : src/config.cpp.o
 
-src/confing.i: src/confing.cc.i
+src/config.i: src/config.cpp.i
 
-.PHONY : src/confing.i
+.PHONY : src/config.i
 
 # target to preprocess a source file
-src/confing.cc.i:
-	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/confing.cc.i
-.PHONY : src/confing.cc.i
+src/config.cpp.i:
+	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/config.cpp.i
+.PHONY : src/config.cpp.i
 
-src/confing.s: src/confing.cc.s
+src/config.s: src/config.cpp.s
 
-.PHONY : src/confing.s
+.PHONY : src/config.s
 
 # target to generate assembly for a file
-src/confing.cc.s:
-	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/confing.cc.s
-.PHONY : src/confing.cc.s
+src/config.cpp.s:
+	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/config.cpp.s
+.PHONY : src/config.cpp.s
 
 src/dataset.o: src/dataset.cpp.o
 
@@ -406,32 +406,32 @@ src/viewer.cpp.s:
 	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/viewer.cpp.s
 .PHONY : src/viewer.cpp.s
 
-src/visual_odometry.o: src/visual_odometry.cc.o
+src/visual_odometry.o: src/visual_odometry.cpp.o
 
 .PHONY : src/visual_odometry.o
 
 # target to build an object file
-src/visual_odometry.cc.o:
-	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/visual_odometry.cc.o
-.PHONY : src/visual_odometry.cc.o
+src/visual_odometry.cpp.o:
+	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/visual_odometry.cpp.o
+.PHONY : src/visual_odometry.cpp.o
 
-src/visual_odometry.i: src/visual_odometry.cc.i
+src/visual_odometry.i: src/visual_odometry.cpp.i
 
 .PHONY : src/visual_odometry.i
 
 # target to preprocess a source file
-src/visual_odometry.cc.i:
-	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/visual_odometry.cc.i
-.PHONY : src/visual_odometry.cc.i
+src/visual_odometry.cpp.i:
+	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/visual_odometry.cpp.i
+.PHONY : src/visual_odometry.cpp.i
 
-src/visual_odometry.s: src/visual_odometry.cc.s
+src/visual_odometry.s: src/visual_odometry.cpp.s
 
 .PHONY : src/visual_odometry.s
 
 # target to generate assembly for a file
-src/visual_odometry.cc.s:
-	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/visual_odometry.cc.s
-.PHONY : src/visual_odometry.cc.s
+src/visual_odometry.cpp.s:
+	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/visual_odometry.cpp.s
+.PHONY : src/visual_odometry.cpp.s
 
 # Help Target
 help:
@@ -449,9 +449,9 @@ help:
 	@echo "... src/camera.o"
 	@echo "... src/camera.i"
 	@echo "... src/camera.s"
-	@echo "... src/confing.o"
-	@echo "... src/confing.i"
-	@echo "... src/confing.s"
+	@echo "... src/config.o"
+	@echo "... src/config.i"
+	@echo "... src/config.s"
 	@echo "... src/dataset.o"
 	@echo "... src/dataset.i"
 	@echo "... src/dataset.s"

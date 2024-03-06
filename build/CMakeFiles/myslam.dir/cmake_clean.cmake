@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/myslam.dir/src/backend.cpp.o"
   "CMakeFiles/myslam.dir/src/camera.cpp.o"
-  "CMakeFiles/myslam.dir/src/confing.cc.o"
+  "CMakeFiles/myslam.dir/src/config.cpp.o"
   "CMakeFiles/myslam.dir/src/dataset.cpp.o"
   "CMakeFiles/myslam.dir/src/feature.cpp.o"
   "CMakeFiles/myslam.dir/src/frame.cpp.o"
@@ -9,7 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/myslam.dir/src/map.cpp.o"
   "CMakeFiles/myslam.dir/src/mappoint.cpp.o"
   "CMakeFiles/myslam.dir/src/viewer.cpp.o"
-  "CMakeFiles/myslam.dir/src/visual_odometry.cc.o"
+  "CMakeFiles/myslam.dir/src/visual_odometry.cpp.o"
   "../lib/libmyslam.pdb"
   "../lib/libmyslam.so"
 )

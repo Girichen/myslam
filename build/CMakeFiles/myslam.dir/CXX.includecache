@@ -660,7 +660,7 @@ backend.h
 camera.h
 /home/giri/myslam/src/camera.h
 
-/home/giri/myslam/src/confing.cc
+/home/giri/myslam/src/config.cpp
 config.h
 /home/giri/myslam/src/config.h
 
@@ -706,7 +706,7 @@ pangolin/pangolin.h
 opencv2/opencv.hpp
 -
 
-/home/giri/myslam/src/visual_odometry.cc
+/home/giri/myslam/src/visual_odometry.cpp
 visual_odometry.h
 /home/giri/myslam/src/visual_odometry.h
 

@@ -105,28 +105,28 @@ CMakeFiles/myslam.dir/src/camera.cpp.o.provides: CMakeFiles/myslam.dir/src/camer
 CMakeFiles/myslam.dir/src/camera.cpp.o.provides.build: CMakeFiles/myslam.dir/src/camera.cpp.o
 
 
-CMakeFiles/myslam.dir/src/confing.cc.o: CMakeFiles/myslam.dir/flags.make
-CMakeFiles/myslam.dir/src/confing.cc.o: ../src/confing.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/myslam.dir/src/confing.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/confing.cc.o -c /home/giri/myslam/src/confing.cc
+CMakeFiles/myslam.dir/src/config.cpp.o: CMakeFiles/myslam.dir/flags.make
+CMakeFiles/myslam.dir/src/config.cpp.o: ../src/config.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/myslam.dir/src/config.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/config.cpp.o -c /home/giri/myslam/src/config.cpp
 
-CMakeFiles/myslam.dir/src/confing.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myslam.dir/src/confing.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giri/myslam/src/confing.cc > CMakeFiles/myslam.dir/src/confing.cc.i
+CMakeFiles/myslam.dir/src/config.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myslam.dir/src/config.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giri/myslam/src/config.cpp > CMakeFiles/myslam.dir/src/config.cpp.i
 
-CMakeFiles/myslam.dir/src/confing.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myslam.dir/src/confing.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giri/myslam/src/confing.cc -o CMakeFiles/myslam.dir/src/confing.cc.s
+CMakeFiles/myslam.dir/src/config.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myslam.dir/src/config.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giri/myslam/src/config.cpp -o CMakeFiles/myslam.dir/src/config.cpp.s
 
-CMakeFiles/myslam.dir/src/confing.cc.o.requires:
+CMakeFiles/myslam.dir/src/config.cpp.o.requires:
 
-.PHONY : CMakeFiles/myslam.dir/src/confing.cc.o.requires
+.PHONY : CMakeFiles/myslam.dir/src/config.cpp.o.requires
 
-CMakeFiles/myslam.dir/src/confing.cc.o.provides: CMakeFiles/myslam.dir/src/confing.cc.o.requires
-	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/confing.cc.o.provides.build
-.PHONY : CMakeFiles/myslam.dir/src/confing.cc.o.provides
+CMakeFiles/myslam.dir/src/config.cpp.o.provides: CMakeFiles/myslam.dir/src/config.cpp.o.requires
+	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/config.cpp.o.provides.build
+.PHONY : CMakeFiles/myslam.dir/src/config.cpp.o.provides
 
-CMakeFiles/myslam.dir/src/confing.cc.o.provides.build: CMakeFiles/myslam.dir/src/confing.cc.o
+CMakeFiles/myslam.dir/src/config.cpp.o.provides.build: CMakeFiles/myslam.dir/src/config.cpp.o
 
 
 CMakeFiles/myslam.dir/src/dataset.cpp.o: CMakeFiles/myslam.dir/flags.make
@@ -297,35 +297,35 @@ CMakeFiles/myslam.dir/src/viewer.cpp.o.provides: CMakeFiles/myslam.dir/src/viewe
 CMakeFiles/myslam.dir/src/viewer.cpp.o.provides.build: CMakeFiles/myslam.dir/src/viewer.cpp.o
 
 
-CMakeFiles/myslam.dir/src/visual_odometry.cc.o: CMakeFiles/myslam.dir/flags.make
-CMakeFiles/myslam.dir/src/visual_odometry.cc.o: ../src/visual_odometry.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/myslam.dir/src/visual_odometry.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/visual_odometry.cc.o -c /home/giri/myslam/src/visual_odometry.cc
+CMakeFiles/myslam.dir/src/visual_odometry.cpp.o: CMakeFiles/myslam.dir/flags.make
+CMakeFiles/myslam.dir/src/visual_odometry.cpp.o: ../src/visual_odometry.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/myslam.dir/src/visual_odometry.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/visual_odometry.cpp.o -c /home/giri/myslam/src/visual_odometry.cpp
 
-CMakeFiles/myslam.dir/src/visual_odometry.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myslam.dir/src/visual_odometry.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giri/myslam/src/visual_odometry.cc > CMakeFiles/myslam.dir/src/visual_odometry.cc.i
+CMakeFiles/myslam.dir/src/visual_odometry.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myslam.dir/src/visual_odometry.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giri/myslam/src/visual_odometry.cpp > CMakeFiles/myslam.dir/src/visual_odometry.cpp.i
 
-CMakeFiles/myslam.dir/src/visual_odometry.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myslam.dir/src/visual_odometry.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giri/myslam/src/visual_odometry.cc -o CMakeFiles/myslam.dir/src/visual_odometry.cc.s
+CMakeFiles/myslam.dir/src/visual_odometry.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myslam.dir/src/visual_odometry.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giri/myslam/src/visual_odometry.cpp -o CMakeFiles/myslam.dir/src/visual_odometry.cpp.s
 
-CMakeFiles/myslam.dir/src/visual_odometry.cc.o.requires:
+CMakeFiles/myslam.dir/src/visual_odometry.cpp.o.requires:
 
-.PHONY : CMakeFiles/myslam.dir/src/visual_odometry.cc.o.requires
+.PHONY : CMakeFiles/myslam.dir/src/visual_odometry.cpp.o.requires
 
-CMakeFiles/myslam.dir/src/visual_odometry.cc.o.provides: CMakeFiles/myslam.dir/src/visual_odometry.cc.o.requires
-	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/visual_odometry.cc.o.provides.build
-.PHONY : CMakeFiles/myslam.dir/src/visual_odometry.cc.o.provides
+CMakeFiles/myslam.dir/src/visual_odometry.cpp.o.provides: CMakeFiles/myslam.dir/src/visual_odometry.cpp.o.requires
+	$(MAKE) -f CMakeFiles/myslam.dir/build.make CMakeFiles/myslam.dir/src/visual_odometry.cpp.o.provides.build
+.PHONY : CMakeFiles/myslam.dir/src/visual_odometry.cpp.o.provides
 
-CMakeFiles/myslam.dir/src/visual_odometry.cc.o.provides.build: CMakeFiles/myslam.dir/src/visual_odometry.cc.o
+CMakeFiles/myslam.dir/src/visual_odometry.cpp.o.provides.build: CMakeFiles/myslam.dir/src/visual_odometry.cpp.o
 
 
 # Object files for target myslam
 myslam_OBJECTS = \
 "CMakeFiles/myslam.dir/src/backend.cpp.o" \
 "CMakeFiles/myslam.dir/src/camera.cpp.o" \
-"CMakeFiles/myslam.dir/src/confing.cc.o" \
+"CMakeFiles/myslam.dir/src/config.cpp.o" \
 "CMakeFiles/myslam.dir/src/dataset.cpp.o" \
 "CMakeFiles/myslam.dir/src/feature.cpp.o" \
 "CMakeFiles/myslam.dir/src/frame.cpp.o" \
@@ -333,14 +333,14 @@ myslam_OBJECTS = \
 "CMakeFiles/myslam.dir/src/map.cpp.o" \
 "CMakeFiles/myslam.dir/src/mappoint.cpp.o" \
 "CMakeFiles/myslam.dir/src/viewer.cpp.o" \
-"CMakeFiles/myslam.dir/src/visual_odometry.cc.o"
+"CMakeFiles/myslam.dir/src/visual_odometry.cpp.o"
 
 # External object files for target myslam
 myslam_EXTERNAL_OBJECTS =
 
 ../lib/libmyslam.so: CMakeFiles/myslam.dir/src/backend.cpp.o
 ../lib/libmyslam.so: CMakeFiles/myslam.dir/src/camera.cpp.o
-../lib/libmyslam.so: CMakeFiles/myslam.dir/src/confing.cc.o
+../lib/libmyslam.so: CMakeFiles/myslam.dir/src/config.cpp.o
 ../lib/libmyslam.so: CMakeFiles/myslam.dir/src/dataset.cpp.o
 ../lib/libmyslam.so: CMakeFiles/myslam.dir/src/feature.cpp.o
 ../lib/libmyslam.so: CMakeFiles/myslam.dir/src/frame.cpp.o
@@ -348,7 +348,7 @@ myslam_EXTERNAL_OBJECTS =
 ../lib/libmyslam.so: CMakeFiles/myslam.dir/src/map.cpp.o
 ../lib/libmyslam.so: CMakeFiles/myslam.dir/src/mappoint.cpp.o
 ../lib/libmyslam.so: CMakeFiles/myslam.dir/src/viewer.cpp.o
-../lib/libmyslam.so: CMakeFiles/myslam.dir/src/visual_odometry.cc.o
+../lib/libmyslam.so: CMakeFiles/myslam.dir/src/visual_odometry.cpp.o
 ../lib/libmyslam.so: CMakeFiles/myslam.dir/build.make
 ../lib/libmyslam.so: /usr/local/lib/libopencv_dnn.so.3.4.3
 ../lib/libmyslam.so: /usr/local/lib/libopencv_ml.so.3.4.3
@@ -364,6 +364,36 @@ myslam_EXTERNAL_OBJECTS =
 ../lib/libmyslam.so: /usr/local/lib/libpango_scene.so
 ../lib/libmyslam.so: /usr/local/lib/libpango_tools.so
 ../lib/libmyslam.so: /usr/local/lib/libpango_video.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_calibration_odom_laser.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_cli.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_core.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_csparse_extension.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_ext_freeglut_minimal.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_hierarchical.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_incremental.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_interactive.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_interface.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_opengl_helper.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_parser.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_simulator.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_solver_cholmod.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_solver_csparse.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_solver_dense.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_solver_eigen.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_solver_pcg.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_solver_slam2d_linear.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_solver_structure_only.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_stuff.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_tutorial_slam2d.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_types_data.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_types_icp.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_types_sba.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_types_sclam2d.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_types_sim3.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_types_slam2d.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_types_slam2d_addons.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_types_slam3d.so
+../lib/libmyslam.so: ../thirdparty/g2o/lib/libg2o_types_slam3d_addons.so
 ../lib/libmyslam.so: /usr/local/lib/libopencv_calib3d.so.3.4.3
 ../lib/libmyslam.so: /usr/local/lib/libopencv_features2d.so.3.4.3
 ../lib/libmyslam.so: /usr/local/lib/libopencv_flann.so.3.4.3
@@ -398,7 +428,7 @@ CMakeFiles/myslam.dir/build: ../lib/libmyslam.so
 
 CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/backend.cpp.o.requires
 CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/camera.cpp.o.requires
-CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/confing.cc.o.requires
+CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/config.cpp.o.requires
 CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/dataset.cpp.o.requires
 CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/feature.cpp.o.requires
 CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/frame.cpp.o.requires
@@ -406,7 +436,7 @@ CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/frontend.cpp.o.require
 CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/map.cpp.o.requires
 CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/mappoint.cpp.o.requires
 CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/viewer.cpp.o.requires
-CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/visual_odometry.cc.o.requires
+CMakeFiles/myslam.dir/requires: CMakeFiles/myslam.dir/src/visual_odometry.cpp.o.requires
 
 .PHONY : CMakeFiles/myslam.dir/requires
 

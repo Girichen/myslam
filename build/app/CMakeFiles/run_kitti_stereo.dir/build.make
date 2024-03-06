@@ -128,6 +128,36 @@ run_kitti_stereo_EXTERNAL_OBJECTS =
 ../bin/run_kitti_stereo: /usr/lib/x86_64-linux-gnu/libGLX.so
 ../bin/run_kitti_stereo: /usr/lib/x86_64-linux-gnu/libGLU.so
 ../bin/run_kitti_stereo: /usr/local/lib/libtinyobj.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_calibration_odom_laser.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_cli.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_core.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_csparse_extension.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_ext_freeglut_minimal.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_hierarchical.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_incremental.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_interactive.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_interface.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_opengl_helper.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_parser.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_simulator.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_solver_cholmod.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_solver_csparse.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_solver_dense.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_solver_eigen.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_solver_pcg.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_solver_slam2d_linear.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_solver_structure_only.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_stuff.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_tutorial_slam2d.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_types_data.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_types_icp.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_types_sba.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_types_sclam2d.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_types_sim3.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_types_slam2d.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_types_slam2d_addons.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_types_slam3d.so
+../bin/run_kitti_stereo: ../thirdparty/g2o/lib/libg2o_types_slam3d_addons.so
 ../bin/run_kitti_stereo: app/CMakeFiles/run_kitti_stereo.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/giri/myslam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../../bin/run_kitti_stereo"
 	cd /home/giri/myslam/build/app && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/run_kitti_stereo.dir/link.txt --verbose=$(VERBOSE)

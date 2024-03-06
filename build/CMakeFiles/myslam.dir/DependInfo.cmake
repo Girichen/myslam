@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/giri/myslam/src/backend.cpp" "/home/giri/myslam/build/CMakeFiles/myslam.dir/src/backend.cpp.o"
   "/home/giri/myslam/src/camera.cpp" "/home/giri/myslam/build/CMakeFiles/myslam.dir/src/camera.cpp.o"
-  "/home/giri/myslam/src/confing.cc" "/home/giri/myslam/build/CMakeFiles/myslam.dir/src/confing.cc.o"
+  "/home/giri/myslam/src/config.cpp" "/home/giri/myslam/build/CMakeFiles/myslam.dir/src/config.cpp.o"
   "/home/giri/myslam/src/dataset.cpp" "/home/giri/myslam/build/CMakeFiles/myslam.dir/src/dataset.cpp.o"
   "/home/giri/myslam/src/feature.cpp" "/home/giri/myslam/build/CMakeFiles/myslam.dir/src/feature.cpp.o"
   "/home/giri/myslam/src/frame.cpp" "/home/giri/myslam/build/CMakeFiles/myslam.dir/src/frame.cpp.o"
@@ -14,7 +14,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/giri/myslam/src/map.cpp" "/home/giri/myslam/build/CMakeFiles/myslam.dir/src/map.cpp.o"
   "/home/giri/myslam/src/mappoint.cpp" "/home/giri/myslam/build/CMakeFiles/myslam.dir/src/mappoint.cpp.o"
   "/home/giri/myslam/src/viewer.cpp" "/home/giri/myslam/build/CMakeFiles/myslam.dir/src/viewer.cpp.o"
-  "/home/giri/myslam/src/visual_odometry.cc" "/home/giri/myslam/build/CMakeFiles/myslam.dir/src/visual_odometry.cc.o"
+  "/home/giri/myslam/src/visual_odometry.cpp" "/home/giri/myslam/build/CMakeFiles/myslam.dir/src/visual_odometry.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

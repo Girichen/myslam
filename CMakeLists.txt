@@ -27,16 +27,18 @@ include_directories(
 
 aux_source_directory(./src SRC_LIST)
 
+file(GLOB g2olib ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/g2o/lib/*.so)
 set(LIBS 
         ${OpenCV_LIBS}
         ${Pangolin_LIBRARIES}
         pthread
         ${EIGEN3_LIBS}
+        ${g2olib}
         )
 
 add_library(myslam SHARED ${SRC_LIST})
+message(${SRC_LIST})
 target_link_libraries(myslam ${LIBS})
 
 
 add_subdirectory(app)
-message(${SRC_LIST})
