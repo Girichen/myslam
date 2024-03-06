@@ -271,10 +271,12 @@ namespace myslam{
                 }
                 std::vector<uchar> status;
                 Mat error;
+                
                 cv::calcOpticalFlowPyrLK(current_frame_->left_img,current_frame_->right_img,kps_left,kps_right,status,error,
                                         cv::Size(11,11),3,
                                         cv::TermCriteria(cv::TermCriteria::COUNT +cv::TermCriteria::EPS,30,0.01),
                                         cv::OPTFLOW_USE_INITIAL_FLOW);
+                
                 int num_good_pts=0;
                 for(unsigned long int i =0;i<status.size();++i){
                         if(status[i]){
@@ -349,6 +351,7 @@ namespace myslam{
                         cv::TermCriteria(cv::TermCriteria::COUNT + cv::TermCriteria::EPS,30,0.01),
                         cv::OPTFLOW_USE_INITIAL_FLOW
              );
+             
              int num_good_pts = 0;
 
              for(size_t i = 0;i<status.size();++i){

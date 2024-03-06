@@ -51,7 +51,7 @@ namespace myslam{
     image_right =
         cv::imread((fmt % dataset_path_ % 1 % current_image_index_).str(),
                    cv::IMREAD_GRAYSCALE);
-
+        
     if (image_left.data == nullptr || image_right.data == nullptr) {
         
         return nullptr;
@@ -62,11 +62,13 @@ namespace myslam{
                cv::INTER_NEAREST);
     cv::resize(image_right, image_right_resized, cv::Size(), 0.5, 0.5,
                cv::INTER_NEAREST);
-
+    
     auto new_frame = Frame::CreateFrame();
+    
     new_frame->left_img = image_left_resized;
     new_frame->right_img = image_right_resized;
     current_image_index_++;
+    
     return new_frame;
 }
 }

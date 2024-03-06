@@ -43,15 +43,14 @@ void VisualOdometry::Run() {
         }
     }
 
+
     backend_->Stop();
     viewer_->Close();
-
-    
 }
 bool VisualOdometry::Step() {
     Frame::Ptr new_frame = dataset_->NextFrame();
     if (new_frame == nullptr) return false;
-
+    
     auto t1 = std::chrono::steady_clock::now();
     bool success = frontend_->AddFrame(new_frame);
     auto t2 = std::chrono::steady_clock::now();
