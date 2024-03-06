@@ -103,6 +103,8 @@ opencv2/opencv.hpp
 -
 backend.h
 ../include/backend.h
+config.h
+../include/config.h
 
 ../include/g2o_types.h
 common_include.h

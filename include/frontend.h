@@ -9,6 +9,7 @@
 #include"viewer.h"
 #include<opencv2/opencv.hpp>
 #include"backend.h"
+#include"config.h"
 namespace myslam{
 class Backend;
 class Viewer;

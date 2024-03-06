@@ -9,7 +9,11 @@
 //"viewer.h"
 namespace myslam{
     
-        Frontend::Frontend(){}
+        Frontend::Frontend(){
+                gftt_= cv::GFTTDetector::create(Config::Get<int>("num_features"),0.01,20);
+                num_features_init_ = Config::Get<int>("num_features_init");
+                num_features_ = Config::Get<int>("num_features");
+        }
 
         FrontendStatus Frontend::GetStatus() const {return status_;}
         

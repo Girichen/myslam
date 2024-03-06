@@ -4,7 +4,8 @@ namespace myslam{
 
     Backend::Backend(){
         backend_running_.store(true);//保证操作原子性，和backend_running_=true有区别。atomic类的store函数
-        std::thread backend_thread_(std::bind(&Backend::BackendLoop,this));
+        //std::thread backend_thread_(std::bind(&Backend::BackendLoop,this));
+        backend_thread_ = std::thread(std::bind(&Backend::BackendLoop,this));
     }
 
     void Backend::SetCameras(Camera::Ptr left,Camera::Ptr right){
