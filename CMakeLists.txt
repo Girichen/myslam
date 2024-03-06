@@ -39,4 +39,4 @@ target_link_libraries(myslam ${LIBS})
 
 
 add_subdirectory(app)
-message(${G2O_INCLUDE_DIR})
+message(${SRC_LIST})
