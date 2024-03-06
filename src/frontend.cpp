@@ -76,7 +76,7 @@ namespace myslam{
                 DetectFeatures();//对当前帧检测特征点
                 FindFeaturesInRight();//在右图寻找特征点
                 TriangulateNewPoints();//三角化特征点
-                //backend_->UpdateMap();//后端优化地图
+                backend_->UpdateMap();//后端优化地图
 
                 return true;
         }//bool InsertKeyframe()
@@ -313,7 +313,7 @@ namespace myslam{
                 }//for
                 current_frame_->SetKeyFrame();
                 map_->InsertKeyFrame(current_frame_);
-                //backend_->UpdateMap();
+                backend_->UpdateMap();
                 return true;
         }//BuildInitMap
 

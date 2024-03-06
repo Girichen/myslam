@@ -107,11 +107,66 @@ namespace myslam{
                     optimizer.addVertex(v);
                 }//if
 
-                
+            if(vertices.find(frame->keyframe_id) != vertices.end()&&vertices_landmarks.find(landmark_id)!=vertices_landmarks.end()){
+                edge->setId(index);
+                edge->setVertex(0,vertices.at(frame->keyframe_id));
+                edge->setVertex(1,vertices_landmarks.at(landmark_id));
+                edge->setMeasurement(Vec2(feat->kp_.pt.x,feat->kp_.pt.y));//
+                edge->setInformation(Mat22::Identity());
+                auto rk = new g2o::RobustKernelHuber();
+                rk->setDelta(chi2_th);
+                edge->setRobustKernel(rk);
+                edges_and_features.insert({edge,feat});
+                optimizer.addEdge(edge);
+                index++;
+            }//if
+                else delete edge;
             }//for
 
         }//for
+    //do optimization
+        optimizer.initializeOptimization();
+        optimizer.optimize(10);
+        int cnt_outlier = 0;
+        int cnt_inlier = 0;
+        int iteration = 0;
+        while(iteration < 5){
+                cnt_outlier = 0;
+                cnt_inlier = 0;
+                for (auto &ef : edges_and_features) {
+            if (ef.first->chi2() > chi2_th) {
+                cnt_outlier++;
+            } else {
+                cnt_inlier++;
+            }
+        }
+        double inlier_ratio = cnt_inlier / double(cnt_inlier + cnt_outlier);
+        if (inlier_ratio > 0.5) {
+            break;
+        } else {
+            chi2_th *= 2;
+            iteration++;
+        }
+        }//while
+        for (auto &ef : edges_and_features) {
+        if (ef.first->chi2() > chi2_th) {
+            ef.second->is_outlier = true;
+            // remove the observation
+            ef.second->mappoint_.lock()->RemoveObservation(ef.second);
+        } else {
+            ef.second->is_outlier = false;
+        }
+    }
 
+    
+
+    // Set pose and lanrmark position
+    for (auto &v : vertices) {
+        active_kfs.at(v.first)->SetPose(v.second->estimate());
+    }
+    for (auto &v : vertices_landmarks) {
+        active_landmarks.at(v.first)->SetPos(v.second->estimate());
+    }
     }//Optimize
 
 
