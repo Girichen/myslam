@@ -30,6 +30,7 @@ namespace myslam{
 
         bool Frontend::AddFrame(Frame::Ptr frame){
                 current_frame_ = frame;//将传入的帧设置为当前帧
+                
                 switch(status_){//查询当前帧的状态
                         case FrontendStatus::INITING://如果当前是初始化则调用双目初始化
                                 StereoInit();
@@ -53,6 +54,8 @@ namespace myslam{
                 if(last_frame_){
                         current_frame_->SetPose(relative_motion_ * last_frame_->pose());
                 }
+                int num_track_last = TrackLastFrame();
+                tracking_inliers_ = EstimateCurrentPose();
                 //判断跟踪状态
                 if(tracking_inliers_>num_features_tracking_){
                         status_ = FrontendStatus::TRACKING_GOOD;
@@ -61,6 +64,7 @@ namespace myslam{
                 }else{
                         status_ = FrontendStatus::LOST;
                 }
+                
                 //插入关键帧，该函数内部会判断是否需要关键帧
                 InsertKeyframe();
                 //计算相对运动
