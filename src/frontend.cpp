@@ -65,6 +65,7 @@ namespace myslam{
                 InsertKeyframe();
                 //计算相对运动
                 relative_motion_ = current_frame_->pose() * last_frame_->pose().inverse();
+                if(viewer_) {viewer_->AddCurrentFrame(current_frame_);}
                 return true;
         }//bool Track() 
 
@@ -83,7 +84,7 @@ namespace myslam{
                 backend_->UpdateMap();//后端优化地图
 
                 return true;
-        }//bool InsertKeyframe()
+        }
 
         void Frontend::SetObservationsForKeyFrame(){
                 //遍历当前帧所有左图特征点，Feature
@@ -211,6 +212,7 @@ namespace myslam{
                         }//for
                 }//for
                 current_frame_->SetPose(vertexpose->estimate());
+                
                 for(auto &feat:features){
                         if(feat->is_outlier){
                                 feat->mappoint_.reset();
@@ -222,9 +224,9 @@ namespace myslam{
         }//Frontend::EstimateCurrentPose()
 
         bool Frontend::StereoInit(){
-                
-                int num_features_right = FindFeaturesInRight();
-                if(num_features_right < num_features_init_){
+                int num_features_left = DetectFeatures();
+                int num_coor_features = FindFeaturesInRight();
+                if(num_coor_features < num_features_init_){
                         return false;
                 }
                 if(BuildInitMap()){
@@ -245,20 +247,22 @@ namespace myslam{
                                 feat->kp_.pt +cv::Point2f(10,10),0,CV_FILLED);
 
                 }
+
                 std::vector<cv::KeyPoint> keypoints;
                 gftt_->detect(current_frame_->left_img,keypoints,mask);
+                
                 int cnt_detected =0;
                 for(auto &kp:keypoints){
                         current_frame_->features_left.push_back(Feature::Ptr(new Feature(current_frame_,kp)));
                         cnt_detected++;
                 }
-                
+                  
                return cnt_detected;
         }
 
         int Frontend::FindFeaturesInRight(){
                 std::vector<cv::Point2f>kps_left,kps_right;
-                for(auto &kp:current_frame_->features_right){
+                for(auto &kp:current_frame_->features_left){
                         kps_left.push_back(kp->kp_.pt);
                         auto mp = kp->mappoint_.lock();//weak_ptr需要这样用
                         if(mp){
@@ -270,7 +274,7 @@ namespace myslam{
 
                 }
                 std::vector<uchar> status;
-                Mat error;
+                cv::Mat error;
                 
                 cv::calcOpticalFlowPyrLK(current_frame_->left_img,current_frame_->right_img,kps_left,kps_right,status,error,
                                         cv::Size(11,11),3,
@@ -297,7 +301,7 @@ namespace myslam{
                 std::vector<SE3> poses{camera_left_->pose(),camera_right_->pose()};
                 unsigned long cnt_init_landmarks = 0;
                 for(unsigned int i= 0;i<current_frame_->features_left.size();++i){
-                        if(current_frame_->features_left[i] = nullptr) continue;
+                        if(current_frame_->features_right[i] == nullptr) continue;
                         std::vector<Vec3> points{
                                         camera_left_->pixel2camera(
                                                 Vec2(current_frame_->features_left[i]->kp_.pt.x,

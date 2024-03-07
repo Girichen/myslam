@@ -51,7 +51,8 @@ namespace myslam{
     image_right =
         cv::imread((fmt % dataset_path_ % 1 % current_image_index_).str(),
                    cv::IMREAD_GRAYSCALE);
-        
+    
+
     if (image_left.data == nullptr || image_right.data == nullptr) {
         
         return nullptr;
