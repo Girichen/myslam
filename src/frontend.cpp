@@ -308,7 +308,7 @@ namespace myslam{
                         }
                         
                 }
-                std::cout<<"FindFeaturesInRight"<<std::endl;
+                std::cout<<"FindFeaturesInRight"<<num_good_pts<<std::endl;
                 return num_good_pts;         
         }//FindFeaturesInRight
 
@@ -343,7 +343,7 @@ namespace myslam{
         }//BuildInitMap
 
         bool Frontend::Reset(){
-                
+                StereoInit();
                 return 0;
         }//Reset()
 

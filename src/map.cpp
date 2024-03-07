@@ -51,11 +51,15 @@ namespace myslam{
             mp->RemoveObservation(feature);
             }
         }
-    std::cout<<"DEBUG"<<std::endl;
+    //error
     for(auto feature:frame_to_remove->features_right){
+        
         if(feature = nullptr)continue;
+        
         auto mp = feature->mappoint_.lock();
+        
         if(mp){
+            
             mp->RemoveObservation(feature);
         }
    }

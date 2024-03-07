@@ -38,7 +38,7 @@ struct Feature;
 
             void SetKeyFrame();
 
-            static Frame::Ptr CreateFrame();
+            static std::shared_ptr<Frame> CreateFrame();
 
 
     };

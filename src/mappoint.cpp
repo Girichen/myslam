@@ -7,6 +7,7 @@ namespace myslam{
     :id_(id),pos_(pos){}
 
     Vec3 MapPoint::Pos(){
+        std::unique_lock<std::mutex> lock(data_mutex);
        return pos_;  
     }
 
