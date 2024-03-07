@@ -22,7 +22,7 @@ namespace myslam{
         double max_dis =0, min_dis = 9999;
         double max_kf_id = 0, min_kf_id=0;
         auto Twc = current_frame->pose().inverse();
-        for (const auto &kf : active_Keyframes_){
+        for ( auto &kf : active_Keyframes_){
             if(kf.second == current_frame)continue;
             auto dis = (kf.second->pose()*Twc).log().norm();
             if(dis>max_dis){
@@ -34,7 +34,7 @@ namespace myslam{
                 min_kf_id = kf.first;
             }
         }
-
+        
         const double min_dis_th = 0.2;
         Frame::Ptr frame_to_remove = nullptr;
         
@@ -44,12 +44,14 @@ namespace myslam{
             frame_to_remove = Keyframes_.at(max_kf_id);
         }
         active_Keyframes_.erase(frame_to_remove->keyframe_id);
+        
     for(auto feature : frame_to_remove->features_left){
         auto mp = feature->mappoint_.lock();
         if(mp){
             mp->RemoveObservation(feature);
             }
         }
+    std::cout<<"DEBUG"<<std::endl;
     for(auto feature:frame_to_remove->features_right){
         if(feature = nullptr)continue;
         auto mp = feature->mappoint_.lock();
@@ -57,6 +59,7 @@ namespace myslam{
             mp->RemoveObservation(feature);
         }
    }
+        
         CleanMap();
  }
 

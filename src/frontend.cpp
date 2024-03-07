@@ -56,6 +56,7 @@ namespace myslam{
                 }
                 int num_track_last = TrackLastFrame();
                 tracking_inliers_ = EstimateCurrentPose();
+                std::cout<<"tracking_inliers_:"<<tracking_inliers_<<std::endl;
                 //判断跟踪状态
                 if(tracking_inliers_>num_features_tracking_){
                         status_ = FrontendStatus::TRACKING_GOOD;
@@ -75,18 +76,22 @@ namespace myslam{
 
         bool Frontend::InsertKeyframe(){
                 //判断是否需要关键帧
+
                 if(tracking_inliers_>=num_features_needed_for_keyframe_){
                        return false;
                 }//if
                 //如果需要关键帧
+                std::cout<<"InsertKeyframe"<<std::endl;
                 current_frame_->SetKeyFrame();//将当前帧设置为关键帧
                 map_->Map::InsertKeyFrame(current_frame_);//在地图插入当前帧
+
                 SetObservationsForKeyFrame();
                 DetectFeatures();//对当前帧检测特征点
+
                 FindFeaturesInRight();//在右图寻找特征点
                 TriangulateNewPoints();//三角化特征点
                 backend_->UpdateMap();//后端优化地图
-
+                if(viewer_){viewer_->UpdateMap();}
                 return true;
         }
 
@@ -166,13 +171,13 @@ namespace myslam{
                 vertexpose->setId(0);
                 vertexpose->setEstimate(current_frame_->pose());//设置估计量
                 optimizer.addVertex(vertexpose);
-
+                
                 //K
                 Mat33 K = camera_left_->K();
 
                 //edges
                 int index = 1;
-                std::vector<EdgeProjectionPoseOnly *>edges;
+                std::vector<EdgeProjectionPoseOnly *> edges;
                 std::vector<Feature::Ptr> features;
                 for(unsigned int i =0;i<current_frame_->features_left.size();++i){
                         auto mp = current_frame_->features_left[i]->mappoint_.lock();
@@ -180,17 +185,21 @@ namespace myslam{
                                         features.push_back(current_frame_->features_left[i]);
                                         EdgeProjectionPoseOnly *edge = new EdgeProjectionPoseOnly(mp->pos_,K);
                                         edge->setId(index);
+                                        edge->setVertex(0,vertexpose);
                                         cv::Point2f &p = current_frame_->features_left[i]->kp_.pt;
                                         edge->setMeasurement(Vec2(p.x,p.y));
+                                        
                                         edge->setInformation(Eigen::Matrix2d::Identity());
                                         edge->setRobustKernel(new g2o::RobustKernelHuber);
                                         edges.push_back(edge);
                                         optimizer.addEdge(edge);
+                                        
                                         index++;
                                 }//if  
                 }//for
-                const double chi12_th = 5.991;
+                const double chi2_th = 5.991;
                 int cnt_outlier=0;
+                
                 for(int iter = 0;iter<4;++iter){
                         vertexpose->setEstimate(current_frame_->pose());
                         optimizer.initializeOptimization();
@@ -201,7 +210,7 @@ namespace myslam{
                                 if(features[i]->is_outlier){
                                         e->computeError();
                                 }
-                                if(e->chi2()>chi12_th){
+                                if(e->chi2()>chi2_th){
                                         features[i]->is_outlier = true;
                                         e->setLevel(1);
                                         cnt_outlier ++;
@@ -209,7 +218,7 @@ namespace myslam{
                                         features[i]->is_outlier = false;
                                         e->setLevel(0);
                                 }
-                                if(iter==2){
+                                if(iter == 2){
                                         e->setRobustKernel(nullptr);
                                 }
                                 
@@ -224,6 +233,7 @@ namespace myslam{
 
                         }
                 }//for
+                std::cout<<"features.size()-cnt_outlier"<<(features.size() - cnt_outlier)<<std::endl;
                 return features.size() - cnt_outlier;
         }//Frontend::EstimateCurrentPose()
 
@@ -247,7 +257,7 @@ namespace myslam{
         int Frontend::DetectFeatures(){
                 cv::Mat mask(current_frame_->left_img.size(),CV_8UC1,255);
                 for(auto &feat : current_frame_->features_left){
-                cv::rectangle(mask,feat->kp_.pt - cv::Point2f(10,10),
+                        cv::rectangle(mask,feat->kp_.pt - cv::Point2f(10,10),
                                 feat->kp_.pt +cv::Point2f(10,10),0,CV_FILLED);
 
                 }
@@ -260,7 +270,7 @@ namespace myslam{
                         current_frame_->features_left.push_back(Feature::Ptr(new Feature(current_frame_,kp)));
                         cnt_detected++;
                 }
-                  
+                std::cout<<"Detect"<<cnt_detected<<"new features"<<std::endl;
                return cnt_detected;
         }
 
@@ -298,6 +308,7 @@ namespace myslam{
                         }
                         
                 }
+                std::cout<<"FindFeaturesInRight"<<std::endl;
                 return num_good_pts;         
         }//FindFeaturesInRight
 

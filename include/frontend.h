@@ -83,7 +83,7 @@ enum class FrontendStatus{INITING,TRACKING_GOOD,TRACKING_BAD,LOST};//强制枚�
 
             int num_features_tracking_=50;
 
-            int num_features_tracking_bad_=20;
+            int num_features_tracking_bad_=5;
             
             int num_features_needed_for_keyframe_=80;
 

@@ -39,6 +39,7 @@ namespace myslam{
             Map::LandmarksType active_landmarks = map_ ->GetActiveMapPoints();
             Optimize(active_kfs,active_landmarks);
         }
+        std::cout<<"Optimize Finish"<<std::endl;
     }//BackendLoop
 
     void Backend::Optimize( Map::KeyframesType &active_kfs, Map::LandmarksType &active_landmarks){
