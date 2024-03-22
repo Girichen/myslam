@@ -47,6 +47,7 @@ namespace myslam{
         
     for(auto feature : frame_to_remove->features_left){
         auto mp = feature->mappoint_.lock();
+        
         if(mp){
             mp->RemoveObservation(feature);
             }
@@ -54,10 +55,9 @@ namespace myslam{
     //error
     for(auto feature:frame_to_remove->features_right){
         
-        if(feature = nullptr)continue;
-        
+        if(feature = nullptr) 
+            continue;
         auto mp = feature->mappoint_.lock();
-        
         if(mp){
             
             mp->RemoveObservation(feature);

@@ -97,7 +97,7 @@ namespace myslam{
 
         void Frontend::SetObservationsForKeyFrame(){
                 //遍历当前帧所有左图特征点，Feature
-                for(const auto &feature : current_frame_->features_left){
+                for(auto &feature : current_frame_->features_left){
                         auto mp = feature->mappoint_.lock();
                         if(mp) mp->AddObservation(feature);
                 }
@@ -105,7 +105,7 @@ namespace myslam{
 
         int Frontend::TriangulateNewPoints(){
                 std::vector<SE3> poses{camera_left_->pose(),camera_right_->pose()};
-                SE3 current_pose_Twc = camera_left_->pose().inverse();
+                SE3 current_pose_Twc = current_frame_->pose().inverse();
                 int cnt_triangulated_pts =0;
                 for(unsigned int i = 0;i<current_frame_->features_left.size();++i){
                         if(current_frame_->features_left[i]->mappoint_.expired() &&
@@ -129,6 +129,7 @@ namespace myslam{
                                         current_frame_->features_right[i]->mappoint_ = new_mappoint;
                                         map_->InsertMapPoint(new_mappoint);
                                         cnt_triangulated_pts++;
+                                        
                                 }//if
                         }//if
                 }//for
@@ -352,7 +353,8 @@ namespace myslam{
                 std::vector<cv::Point2f> kps_last,kps_current;
                 //遍历上一关键点，如果地图点存在就
                 for(auto &kp : last_frame_->features_left){
-                       if(auto mp = kp->mappoint_.lock()){
+                       if(kp->mappoint_.lock()){
+                                auto mp = kp->mappoint_.lock();
                                 auto px = camera_left_->world2pixel(mp->pos_,current_frame_->pose());
                                 kps_last.push_back(kp->kp_.pt);
                                 kps_current.push_back(cv::Point2f(px[0],px[1]));

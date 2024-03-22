@@ -23,7 +23,7 @@ struct Frame;
             
             MapPoint();
 
-            MapPoint(unsigned long id,const Vec3 &pos);
+            MapPoint(unsigned long id, Vec3 &pos);
 
             Vec3 Pos();
 
