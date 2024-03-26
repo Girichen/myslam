@@ -37,6 +37,7 @@ namespace myslam{
                                 break;
                         case FrontendStatus::TRACKING_GOOD://跟踪
                                 Track();
+                                
                                 break;
                         case FrontendStatus::TRACKING_BAD:
                                 Track();
@@ -87,8 +88,9 @@ namespace myslam{
 
                 SetObservationsForKeyFrame();
                 DetectFeatures();//对当前帧检测特征点
-
+        
                 FindFeaturesInRight();//在右图寻找特征点
+                                
                 TriangulateNewPoints();//三角化特征点
                 backend_->UpdateMap();//后端优化地图
                 if(viewer_){viewer_->UpdateMap();}
@@ -107,6 +109,9 @@ namespace myslam{
                 std::vector<SE3> poses{camera_left_->pose(),camera_right_->pose()};
                 SE3 current_pose_Twc = current_frame_->pose().inverse();
                 int cnt_triangulated_pts =0;
+
+                 
+                                 
                 for(unsigned int i = 0;i<current_frame_->features_left.size();++i){
                         if(current_frame_->features_left[i]->mappoint_.expired() &&
                         current_frame_->features_right[i] != nullptr){
@@ -118,6 +123,8 @@ namespace myslam{
                                                 Vec2(current_frame_->features_right[i]->kp_.pt.x,
                                                      current_frame_->features_right[i]->kp_.pt.y))};
                                 Vec3 pworld = Vec3::Zero();
+
+                        
 
                                 if(triangulation(poses,points,pworld) && pworld[2]>0){
                                         auto new_mappoint = MapPoint::CreateNewMappoint();
@@ -131,8 +138,12 @@ namespace myslam{
                                         cnt_triangulated_pts++;
                                         
                                 }//if
-                        }//if
+                        }
+                        
                 }//for
+               // for(const auto&kp: current_frame_->features_right){
+                   //             std::cout<<&(kp->mappoint_)<<std::endl;}
+                           
                 return cnt_triangulated_pts;
         }// int TriangulateNewPoints
 
@@ -256,18 +267,20 @@ namespace myslam{
         }//bool StereoInit
 
         int Frontend::DetectFeatures(){
+                //创建了一个大小与当前帧左侧图像相同的单通道（白色图）
                 cv::Mat mask(current_frame_->left_img.size(),CV_8UC1,255);
+                //遍历特征点，在特征点附近绘制一个黑色矩形
                 for(auto &feat : current_frame_->features_left){
                         cv::rectangle(mask,feat->kp_.pt - cv::Point2f(10,10),
                                 feat->kp_.pt +cv::Point2f(10,10),0,CV_FILLED);
-
                 }
-
+                
                 std::vector<cv::KeyPoint> keypoints;
                 gftt_->detect(current_frame_->left_img,keypoints,mask);
                 
                 int cnt_detected =0;
                 for(auto &kp:keypoints){
+                        //将Feature放到帧里面
                         current_frame_->features_left.push_back(Feature::Ptr(new Feature(current_frame_,kp)));
                         cnt_detected++;
                 }
@@ -299,16 +312,23 @@ namespace myslam{
                 int num_good_pts=0;
                 for(unsigned long int i =0;i<status.size();++i){
                         if(status[i]){
+                                //good pts
                                 cv::KeyPoint kp(kps_right[i],7);
                                 Feature::Ptr feat(new Feature(current_frame_,kp));
+
+                                
+
                                 feat->is_on_left_img = false;
                                 current_frame_->features_right.push_back(feat);
-                                ++num_good_pts;
+                                num_good_pts++;
                         }else{
                                 current_frame_->features_right.push_back(nullptr);
                         }
                         
-                }
+                }//for
+
+                
+                
                 std::cout<<"FindFeaturesInRight"<<num_good_pts<<std::endl;
                 return num_good_pts;         
         }//FindFeaturesInRight
@@ -319,6 +339,7 @@ namespace myslam{
                 for(unsigned int i= 0;i<current_frame_->features_left.size();++i){
                         if(current_frame_->features_right[i] == nullptr) continue;
                         std::vector<Vec3> points{
+                                        //计算特征点与到相机的位置
                                         camera_left_->pixel2camera(
                                                 Vec2(current_frame_->features_left[i]->kp_.pt.x,
                                                      current_frame_->features_left[i]->kp_.pt.y)),
@@ -337,6 +358,7 @@ namespace myslam{
                                         map_->InsertMapPoint(new_mappoint);
                                 }//if         
                 }//for
+                
                 current_frame_->SetKeyFrame();
                 map_->InsertKeyFrame(current_frame_);
                 backend_->UpdateMap();
@@ -344,7 +366,7 @@ namespace myslam{
         }//BuildInitMap
 
         bool Frontend::Reset(){
-                StereoInit();
+                std::cout<<"RESET!!!!!!!!!!"<<std::endl;
                 return 0;
         }//Reset()
 

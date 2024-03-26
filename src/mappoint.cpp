@@ -20,6 +20,7 @@ namespace myslam{
         std::unique_lock<std::mutex> lck(data_mutex);
         observations_.push_back(feature);
         observed_times++;
+        lck.unlock();
     }
 
     void MapPoint::RemoveObservation(std::shared_ptr<Feature> feature){
