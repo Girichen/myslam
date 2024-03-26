@@ -12,3 +12,11 @@ git push origin main
 git merge develop main
 
 git branch -d master
+
+
+#切换分支
+git checkout main
+#把develop版本覆盖main版本
+git merge develop
+#上传
+git push origin main
