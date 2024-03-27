@@ -18,7 +18,7 @@ namespace myslam{
 
     void MapPoint::AddObservation(std::shared_ptr<Feature> feature){
         std::unique_lock<std::mutex> lck(data_mutex);
-        observations_.push_back(feature);
+        observations_.emplace_back(feature);
         observed_times++;
         lck.unlock();
     }

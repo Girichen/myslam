@@ -194,7 +194,7 @@ namespace myslam{
                 for(unsigned int i =0;i<current_frame_->features_left.size();++i){
                         auto mp = current_frame_->features_left[i]->mappoint_.lock();
                                 if(mp){
-                                        features.push_back(current_frame_->features_left[i]);
+                                        features.emplace_back(current_frame_->features_left[i]);
                                         EdgeProjectionPoseOnly *edge = new EdgeProjectionPoseOnly(mp->pos_,K);
                                         edge->setId(index);
                                         edge->setVertex(0,vertexpose);
@@ -203,7 +203,7 @@ namespace myslam{
                                         
                                         edge->setInformation(Eigen::Matrix2d::Identity());
                                         edge->setRobustKernel(new g2o::RobustKernelHuber);
-                                        edges.push_back(edge);
+                                        edges.emplace_back(edge);
                                         optimizer.addEdge(edge);
                                         
                                         index++;
@@ -279,9 +279,10 @@ namespace myslam{
                 gftt_->detect(current_frame_->left_img,keypoints,mask);
                 
                 int cnt_detected =0;
+                current_frame_->features_left.reserve(keypoints.size());
                 for(auto &kp:keypoints){
                         //将Feature放到帧里面
-                        current_frame_->features_left.push_back(Feature::Ptr(new Feature(current_frame_,kp)));
+                        current_frame_->features_left.emplace_back(Feature::Ptr(new Feature(current_frame_,kp)));
                         cnt_detected++;
                 }
                 std::cout<<"Detect"<<cnt_detected<<"new features"<<std::endl;
@@ -291,13 +292,13 @@ namespace myslam{
         int Frontend::FindFeaturesInRight(){
                 std::vector<cv::Point2f>kps_left,kps_right;
                 for(auto &kp:current_frame_->features_left){
-                        kps_left.push_back(kp->kp_.pt);
+                        kps_left.emplace_back(kp->kp_.pt);
                         auto mp = kp->mappoint_.lock();//weak_ptr需要这样用
                         if(mp){
                                 auto px = camera_right_->world2pixel(mp->pos_,current_frame_->pose());
-                                kps_right.push_back(cv::Point2f(px[0],px[1]));
+                                kps_right.emplace_back(cv::Point2f(px[0],px[1]));
                         }else{
-                                kps_right.push_back(kp->kp_.pt);
+                                kps_right.emplace_back(kp->kp_.pt);
                         }
 
                 }
@@ -310,19 +311,17 @@ namespace myslam{
                                         cv::OPTFLOW_USE_INITIAL_FLOW);
                 
                 int num_good_pts=0;
+                current_frame_->features_right.reserve(status.size());
                 for(unsigned long int i =0;i<status.size();++i){
                         if(status[i]){
                                 //good pts
                                 cv::KeyPoint kp(kps_right[i],7);
                                 Feature::Ptr feat(new Feature(current_frame_,kp));
-
-                                
-
                                 feat->is_on_left_img = false;
-                                current_frame_->features_right.push_back(feat);
+                                current_frame_->features_right.emplace_back(feat);
                                 num_good_pts++;
                         }else{
-                                current_frame_->features_right.push_back(nullptr);
+                                current_frame_->features_right.emplace_back(nullptr);
                         }
                         
                 }//for
@@ -378,11 +377,11 @@ namespace myslam{
                        if(kp->mappoint_.lock()){
                                 auto mp = kp->mappoint_.lock();
                                 auto px = camera_left_->world2pixel(mp->pos_,current_frame_->pose());
-                                kps_last.push_back(kp->kp_.pt);
-                                kps_current.push_back(cv::Point2f(px[0],px[1]));
+                                kps_last.emplace_back(kp->kp_.pt);
+                                kps_current.emplace_back(cv::Point2f(px[0],px[1]));
                         }else{
-                                kps_last.push_back(kp->kp_.pt);
-                                kps_current.push_back(kp->kp_.pt);
+                                kps_last.emplace_back(kp->kp_.pt);
+                                kps_current.emplace_back(kp->kp_.pt);
                         }//else
              }//for
 
@@ -402,7 +401,7 @@ namespace myslam{
                         cv::KeyPoint kp(kps_current[i],7);
                         Feature::Ptr feature(new Feature(current_frame_,kp));
                         feature->mappoint_ = last_frame_->features_left[i]->mappoint_;
-                        current_frame_->features_left.push_back(feature);
+                        current_frame_->features_left.emplace_back(feature);
                         num_good_pts++;
                 }//if
              }//for

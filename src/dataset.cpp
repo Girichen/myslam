@@ -33,7 +33,7 @@ namespace myslam{
         K = K * 0.5;
         Camera::Ptr new_camera(new Camera(K(0, 0), K(1, 1), K(0, 2), K(1, 2),
                                           t.norm(), SE3(SO3(), t)));
-        cameras.push_back(new_camera);
+        cameras.emplace_back(new_camera);
         
     }
     fin.close();
